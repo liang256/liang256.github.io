@@ -1,7 +1,7 @@
 ---
 title: Learn Solana CLI
 date: 2022-04-22 08:19:39
-categories: [ Crypto ]
+categories: [Crypto/Blockchain]
 tags:
   - solana
   - crypto

@@ -1,7 +1,7 @@
 ---
 title: "STEPN 我該鑄造鞋子來賣嗎？ Should I Mint Shoes To Sell Now?"
 date: 2022-04-15 00:51:20
-categories: [Crypto]
+categories: [Crypto/Blockchain]
 tags:
     - solana
     - gamefi
