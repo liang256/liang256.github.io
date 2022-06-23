@@ -9,6 +9,9 @@ date: 2022-06-06 22:09:45
 ### [Tweener](https://github.com/n795113/tweener)
 ![](https://user-images.githubusercontent.com/23650308/172175600-ec0a9371-6d67-469c-af6a-84016f3c477b.gif)
 
+### [Blend Mesh Deformer](https://github.com/n795113/blend-mesh-deformer)
+![](https://user-images.githubusercontent.com/23650308/175259327-e1362626-d2cd-447a-a005-29e39a113136.gif)
+
 ### [Castle Generator](https://github.com/n795113/mel-castle-creator)
 ![](https://user-images.githubusercontent.com/23650308/172132439-9f8df203-e568-4feb-8f53-a975d4f035b7.gif)
 
