@@ -29,3 +29,4 @@ build shorcut in xCode: `command + b`
 - [Simple OpenGL App on Mac](https://www.jianshu.com/p/eedc41051bd9)
 - [How to fix C++ header file not found in Xcode](https://www.youtube.com/watch?v=hrPm7tWC-BI)
 - [Xcode gives error when I add libraries: dyld: Library not loaded](https://stackoverflow.com/questions/67049987/xcode-gives-error-when-i-add-libraries-dyld-library-not-loaded)
+- [环境配置: macOS配置GLAD+GLFW的OpenGL环境(CMake / CLion)](https://www.cnblogs.com/fijiisland/p/14057950.html)
