@@ -15,7 +15,7 @@ A Laravel web crawler with a front-end dashboard to display crawled results.
 <!-- [🔗 repo](https://github.com/n795113/laravel-crawler) -->
 
 ### [IGDB Video Game](https://github.com/n795113/IGDB-videogame)
-A Laravel 8 web integrates [IGDB API](https://www.igdb.com/api) to disply video game infomation.
+A Laravel 8 web integrates [IGDB API](https://www.igdb.com/api) to display video game information.
 
 <!-- [🔗 repo](https://github.com/n795113/IGDB-videogame) -->
 
@@ -26,3 +26,6 @@ Tweety is a simple twitter-like web app.
 - Like and dislike tweets
 - Editable user profile
 - Followable users
+
+### [Solana By Example](https://n795113.github.io/solana-by-example)
+Solana by Example is a collection of runnable examples illustrating various Solana concepts and libraries.
