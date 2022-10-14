@@ -1,7 +1,7 @@
 ---
 title: Maya API Basics
 date: 2022-06-23 02:55:31
-categories: [Tech, Maya]
+categories: Maya
 tags:
   - maya
 ---

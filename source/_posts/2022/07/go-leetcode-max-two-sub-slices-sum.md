@@ -1,6 +1,6 @@
 ---
 title: "Go Leetcode: Max Two Sub Slices Sum"
-categories: [Tech, Go]
+categories: Leetcode
 tags:
   - leetcode
   - go

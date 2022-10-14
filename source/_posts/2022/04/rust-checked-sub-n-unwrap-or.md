@@ -1,7 +1,7 @@
 ---
 title: "Rust: checked_sub & unwrap_or"
 date: 2022-04-28 00:34:33
-categories: [Tech, Rust]
+categories: Rust
 tags:
   - rust
 ---

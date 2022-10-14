@@ -1,7 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-categories: [Tech]
+categories: Leetcode
 tags:
   - leetcode
 ---

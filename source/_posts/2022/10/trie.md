@@ -1,7 +1,7 @@
 ---
 title: "Prefix Tree: Trie"
 date: 2022-10-15 02:54:48
-categories: Tech
+categories: Algorithm
 tags:
   - algorithm
   - datastructure

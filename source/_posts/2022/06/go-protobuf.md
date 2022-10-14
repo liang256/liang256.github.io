@@ -1,7 +1,7 @@
 ---
 title: "GO: Proto Buffer"
 date: 2022-06-01 21:57:43
-categories: [Tech, Go]
+categories: Go
 tags:
     - go
     - grpc

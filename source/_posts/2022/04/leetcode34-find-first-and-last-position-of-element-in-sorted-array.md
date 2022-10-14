@@ -1,7 +1,7 @@
 ---
 title: "Solve Leetcode in Rust: Find The First And The Last Position of Element In A Sorted Array"
 date: 2022-04-28 11:23:07
-categories: [Tech, Rust]
+categories: Leetcode
 tags:
   - rust
   - leetcode

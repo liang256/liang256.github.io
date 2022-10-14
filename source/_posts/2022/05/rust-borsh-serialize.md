@@ -1,7 +1,7 @@
 ---
 title: "Rust: Borsh Serialize"
 date: 2022-05-23 22:13:57
-categories: [Tech, Rust]
+categories: Rust
 tags:
   - rust
   - solana

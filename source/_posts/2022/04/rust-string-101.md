@@ -1,7 +1,7 @@
 ---
 title: "Rust: String 101"
 date: 2022-04-13 23:28:05
-categories: [Tech, Rust]
+categories: Rust
 tags:
     - rust
 ---

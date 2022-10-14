@@ -1,7 +1,7 @@
 ---
 title: "Javascript: Rest Parameter"
 date: 2022-05-18 16:46:49
-categories: [Tech, Javascript]
+categories: Javascript
 tags:
   - javascript
 ---

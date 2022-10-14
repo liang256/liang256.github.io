@@ -1,7 +1,7 @@
 ---
 title: "Solve Leetcode in Rust: Implement strStr()"
 date: 2022-05-05 12:10:55
-categories: [Tech, Rust]
+categories: Leetcode
 tags:
   - leetcode
   - rust

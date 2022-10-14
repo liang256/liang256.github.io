@@ -1,7 +1,7 @@
 ---
 title: CSS Flex
 date: 2022-03-22 12:01:38
-categories: ['Tech', 'CSS']
+categories: CSS
 tags:
     - css
     - flex

@@ -1,7 +1,7 @@
 ---
 title: "Maya Python API: Hello world!"
 date: 2022-06-16 23:17:33
-categories: [Tech, Maya]
+categories: Maya
 tags:
   - maya
   - python

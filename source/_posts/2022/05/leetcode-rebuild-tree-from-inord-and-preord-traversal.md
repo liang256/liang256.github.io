@@ -1,7 +1,7 @@
 ---
 title: "Solve Leetcode in Rust: Rebuild A Tree From An Inorder and A Preorder Traversal"
 date: 2022-05-05 10:29:21
-categories: [Tech, Rust]
+categories: Leetcode
 tags:
   - leetcode
   - rust

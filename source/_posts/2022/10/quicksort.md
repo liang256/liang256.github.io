@@ -1,7 +1,7 @@
 ---
 title: Quick Sort
 date: 2022-10-15 01:42:44
-categories: Tech
+categories: Algorithm
 tags:
     - algorithm
     - tree

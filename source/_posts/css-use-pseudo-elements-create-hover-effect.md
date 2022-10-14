@@ -1,7 +1,7 @@
 ---
 title: "CSS: Use Pseudo Elements Create Hover Effect"
 date: 2022-03-28 21:37:38
-categories: [Tech, CSS]
+categories: [CSS]
 tags:
   - css
 ---

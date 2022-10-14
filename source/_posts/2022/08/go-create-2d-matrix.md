@@ -1,7 +1,7 @@
 ---
 title: "Go: How To Create a 2D Matrix Properly?"
 date: 2022-08-17 14:27:04
-categories: [Tech, Go]
+categories: Go
 tags:
   - go
   - memory

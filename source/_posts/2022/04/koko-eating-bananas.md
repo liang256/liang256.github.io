@@ -1,7 +1,7 @@
 ---
 title: "Solve Leetcode in Rust: Koko Eating Bananas"
 date: 2022-04-30 00:05:19
-categories: [Tech, Rust]
+categories: Leetcode
 tags:
   - leetcode
   - rust

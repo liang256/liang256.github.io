@@ -1,7 +1,7 @@
 ---
 title: "React: How To Append JSX"
 date: 2022-03-28 21:27:22
-categories: [Tech, React]
+categories: React
 tags:
   - react
 ---

@@ -1,9 +1,11 @@
 ---
 title: "Go Leetcode: Crop N Length String"
 date: 2022-07-20 16:31:12
-categories: [Tech, Go]
+categories: Leetcode
 tags:
   - leetcode
+  - go
+  - two-pointers
 ---
 ## Problem
 Given a string `s`, return a cropped which max length is `n`.

@@ -1,7 +1,7 @@
 ---
 title: "Maya API For C++: How To Debug On Mac"
 date: 2022-06-23 03:19:13
-categories: [Tech, Maya]
+categories: Maya
 tags:
   - c++
   - maya
