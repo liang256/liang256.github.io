@@ -34,11 +34,12 @@ func quicksort(array []int) []int {
 			swap(array, l, r)
 		}
 		meet := l
-		if array[meet] > array[pivot] {
+		if array[meet] >= array[pivot] {
 			swap(array, meet, pivot)
+            pivot = meet
 		}
-		dfs(start, meet-1)
-		dfs(meet+1, end)
+		dfs(start, pivot-1)
+		dfs(pivot+1, end)
 	}
 	dfs(0, len(array)-1)
 	return array
@@ -72,10 +73,11 @@ func doPartition(array []int) Partition {
 		swap(array, l, r)
 	}
 	meet := l
-	if array[meet] > array[pivot] {
+	if array[meet] >= array[pivot] {
 		swap(array, pivot, meet)
+		pivot = meet
 	}
-	return Partition{pivot, array[:meet], array[meet+1:]}
+	return Partition{pivot, array[:pivot], array[pivot+1:]}
 }
 
 func swap(array []int, a, b int) {
