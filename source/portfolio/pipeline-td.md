@@ -1,7 +1,13 @@
 ---
 title: Pipeline TD Portfolio
-date: 2022-06-06 22:09:45
+date: 2024-02-20 22:09:45
 ---
+### [Terminal Tetris](https://github.com/liang256/tetris)
+![](https://github.com/liang256/tetris/raw/main/videos/v_1_0_0.gif)
+
+### [Go Raytracer](https://github.com/liang256/go-tinyraytracer)
+A tiny raytracer implemented in Go
+![](https://user-images.githubusercontent.com/23650308/194513765-0c17446a-7ee6-42cf-a9af-02861a76e0ee.png)
 
 ### [Controller Manager](https://github.com/liang256/controller-manager)
 ![](https://user-images.githubusercontent.com/23650308/172152977-ef9a6a5f-8b41-473c-871e-4180a6acf4ab.gif)
