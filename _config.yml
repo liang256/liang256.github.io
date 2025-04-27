@@ -3,13 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Liang Chen
-subtitle: 'Software Engineer'
-description: 'Software Engineer'
+title: /tmp/bucket
+subtitle: 'A place to dump my thoughts'
+description: 'Random thoughts, experiments, and notes.'
 keywords:
   - software development
   - python
   - react
+  - notes
 author: Liang Chen
 language: en
 timezone: 'Asia/Taipei'
