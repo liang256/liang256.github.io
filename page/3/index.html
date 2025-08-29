@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -163,6 +163,93 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/07/01/first-opengl-app-on-mac-xcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/01/first-opengl-app-on-mac-xcode/" class="post-title-link" itemprop="url">First OpenGL App On Mac | Xcode</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-01 13:53:45" itemprop="dateCreated datePublished" datetime="2022-07-01T13:53:45+08:00">2022-07-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h3><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jianshu.com/p/eedc41051bd9">Follow this tutorial</a></p>
+<h3 id="New-C-Project-in-Xcode"><a href="#New-C-Project-in-Xcode" class="headerlink" title="New C++ Project in Xcode"></a>New C++ Project in Xcode</h3><p>Select command line tool<br><img src="/2022/07/01/first-opengl-app-on-mac-xcode/new.png"></p>
+<h3 id="Edit-Header-Search-Paths-Library-Search-Paths"><a href="#Edit-Header-Search-Paths-Library-Search-Paths" class="headerlink" title="Edit Header Search Paths &amp; Library Search Paths"></a>Edit Header Search Paths &amp; Library Search Paths</h3><p>I could not find where to edit <code>Header Search Paths</code> and <code>Library Search Paths</code> until I found this <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.youtube.com/watch?v=hrPm7tWC-BI">Toutube tutorial</a>.</p>
+<p><img src="/2022/07/01/first-opengl-app-on-mac-xcode/path.png"></p>
+<h3 id="Set-additional-preferences-like-below"><a href="#Set-additional-preferences-like-below" class="headerlink" title="Set additional preferences like below"></a>Set additional preferences like below</h3><p><img src="/2022/07/01/first-opengl-app-on-mac-xcode/signing_capabilities.png"></p>
+<p>build shorcut in xCode: <code>command + b</code></p>
+<h3 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h3><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jianshu.com/p/eedc41051bd9">Simple OpenGL App on Mac</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.youtube.com/watch?v=hrPm7tWC-BI">How to fix C++ header file not found in Xcode</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://stackoverflow.com/questions/67049987/xcode-gives-error-when-i-add-libraries-dyld-library-not-loaded">Xcode gives error when I add libraries: dyld: Library not loaded</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.cnblogs.com/fijiisland/p/14057950.html">环境配置: macOS配置GLAD+GLFW的OpenGL环境(CMake &#x2F; CLion)</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1027,119 +1114,6 @@
 </ul>
 <p>Which means we are trying to find the best from <code>1</code> ~ <code>piles.max()</code>. Searching a value from a sorted array… maybe binary search is a soslution.</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="Try-1"><a href="#Try-1" class="headerlink" title="Try #1"></a>Try #1</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::cmp::Ordering;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">min_eating_speed</span>(piles: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, h: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">sorted_piles</span> = piles.<span class="title function_ invoke__">clone</span>();</span><br><span class="line">        sorted_piles.<span class="title function_ invoke__">sort</span>();</span><br><span class="line">        Solution::<span class="title function_ invoke__">min_eating_speed_inner</span>(</span><br><span class="line">            &amp;sorted_piles,</span><br><span class="line">            h,</span><br><span class="line">            <span class="number">1</span>,</span><br><span class="line">            *sorted_piles.<span class="title function_ invoke__">last</span>().<span class="title function_ invoke__">unwrap</span>()</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">min_eating_speed_inner</span>(piles: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, h: <span class="type">i32</span>, min: <span class="type">i32</span>, max: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="comment">// return codition</span></span><br><span class="line">        <span class="keyword">if</span> piles.<span class="title function_ invoke__">len</span>() == <span class="number">0</span> || min &gt; max &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// speeds arr is [min..max]</span></span><br><span class="line">        <span class="comment">// so the mid speed is (min + max) / 2</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">mid</span> = min + (max - min) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// piles divides speed return spend time</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">time</span> = Solution::<span class="title function_ invoke__">count_eating_time</span>(&amp;piles, mid);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// find the matched speed or continue go down to sub tree</span></span><br><span class="line">        <span class="keyword">match</span> time.<span class="title function_ invoke__">cmp</span>(&amp;h) &#123;</span><br><span class="line">            <span class="comment">// spend too much time to eat, speed up</span></span><br><span class="line">            Ordering::Greater =&gt; Solution::<span class="title function_ invoke__">min_eating_speed_inner</span>(piles, h, mid + <span class="number">1</span>, max),</span><br><span class="line">            <span class="comment">// match, try to find a better (slower) speed</span></span><br><span class="line">            _ =&gt; &#123;</span><br><span class="line">                <span class="keyword">let</span> <span class="variable">new_speed</span> = Solution::<span class="title function_ invoke__">min_eating_speed_inner</span>(piles, h, min, mid - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> new_speed &gt; <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> new_speed;</span><br><span class="line">                &#125;</span><br><span class="line">                mid</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">count_eating_time</span>(piles: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, speed: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="comment">// count the time to eat each pile and return sum</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">sum</span> = piles</span><br><span class="line">            .<span class="title function_ invoke__">into_iter</span>()</span><br><span class="line">            .<span class="title function_ invoke__">map</span>(|pile| &#123;</span><br><span class="line">                <span class="keyword">if</span> pile % speed &gt; <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> pile / speed + <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> pile / speed</span><br><span class="line">            &#125;)</span><br><span class="line">            .<span class="title function_ invoke__">sum</span>();</span><br><span class="line"></span><br><span class="line">        sum</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/" class="post-title-link" itemprop="url">Solve Leetcode in Rust: Find The First And The Last Position of Element In A Sorted Array</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-28 11:23:07" itemprop="dateCreated datePublished" datetime="2022-04-28T11:23:07+08:00">2022-04-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h2><p>The core concept is to find the target from a sorted array which is quite suitable to use binary serach I think.</p>
-<p>Here are my instructions:</p>
-<ol>
-<li>Get the middle element, <code>mid</code></li>
-<li>Compare the <code>mid</code> with the target. there will be 3 branches:<br> a. <code>target</code> &lt; <code>mid</code>: continue to find the target from the LEFT side of the <code>mid</code><br> b. <code>target</code> &gt; <code>mid</code>: continue to find the target from the RIGHT side of the <code>mid</code><br> c. <code>target</code> &#x3D; <code>mid</code>: In this case, <code>[index_of_mid, index_of_mid]</code> will be our base answer so keep it. Then based on this answer, we need to go further to the both left and right to seek if there is other elements match to the search target.</li>
-</ol>
-<p>For example, if the given array is <code>[1, 2, 3, 4, 4, 4, 4, 6, 9]</code>, and the search target is <code>4</code>.</p>
-<p>Then we are trying to get this green range.</p>
-<p><img src="/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/green_range.png"></p>
-<p>When we go through the instructions, we will get the middle element, and hit the c case.</p>
-<p><img src="/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/mid.png"></p>
-<p>Then base on this position, we seek towar left and right to get the final range.</p>
-<p><img src="/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/seek_left_n_right.png"></p>
-<p>So the answer should be <code>[3, 6]</code></p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="Try-1"><a href="#Try-1" class="headerlink" title="Try #1"></a>Try #1</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">search_range</span>(nums: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, target: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> nums.<span class="title function_ invoke__">len</span>() == <span class="number">0</span> &#123;<span class="keyword">return</span> <span class="built_in">vec!</span>[-<span class="number">1</span>,-<span class="number">1</span>]&#125;</span><br><span class="line">        <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;nums, target, <span class="number">0</span>, (nums.<span class="title function_ invoke__">len</span>()-<span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>)</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">bst_search_index_rec</span>(arr: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, val: <span class="type">i32</span>, start_i: <span class="type">i32</span>, end_i: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> start_i &gt; end_i &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">vec!</span>[-<span class="number">1</span>, -<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">result</span>: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; = <span class="built_in">vec!</span>[-<span class="number">1</span>, -<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">mid_i</span> = (start_i + end_i)/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> val == arr[mid_i <span class="keyword">as</span> <span class="type">usize</span>] &#123;</span><br><span class="line">        result[<span class="number">0</span>] = mid_i <span class="keyword">as</span> <span class="type">i32</span>;</span><br><span class="line">        result[<span class="number">1</span>] = mid_i <span class="keyword">as</span> <span class="type">i32</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> <span class="variable">tmp_left_result</span> = <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;arr, val, start_i, (mid_i-<span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>);</span><br><span class="line">        <span class="keyword">if</span> tmp_left_result[<span class="number">0</span>] != -<span class="number">1</span> &#123;</span><br><span class="line">            result[<span class="number">0</span>] = tmp_left_result[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">tmp_right_result</span> = <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;arr, val, (mid_i+<span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>, end_i);</span><br><span class="line">        <span class="keyword">if</span> tmp_right_result[<span class="number">1</span>] != -<span class="number">1</span> &#123;</span><br><span class="line">            result[<span class="number">1</span>] = tmp_right_result[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> val &lt; arr[mid_i <span class="keyword">as</span> <span class="type">usize</span>] &#123;</span><br><span class="line">        result = <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;arr, val, start_i, (mid_i - <span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> val &gt; arr[mid_i <span class="keyword">as</span> <span class="type">usize</span>] &#123;</span><br><span class="line">        result = <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;arr, val, (mid_i + <span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>, end_i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Try-2"><a href="#Try-2" class="headerlink" title="Try #2"></a>Try #2</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::cmp::Ordering; <span class="comment">// Don&#x27;t forget to import this</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">search_range</span>(nums: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, target: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; &#123;</span><br><span class="line"></span><br><span class="line">        Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(&amp;nums, target, <span class="number">0</span>, nums.<span class="title function_ invoke__">len</span>() <span class="keyword">as</span> <span class="type">i32</span> - <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">bst_search_index_inner</span>(arr: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, val: <span class="type">i32</span>, start_i: <span class="type">i32</span>, end_i: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; &#123;</span><br><span class="line">        <span class="comment">// return condition</span></span><br><span class="line">        <span class="keyword">if</span> start_i &gt; end_i || arr.<span class="title function_ invoke__">len</span>() == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">vec!</span>[-<span class="number">1</span>, -<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// avoid overflows rather than simply (start_i + end_i) / 2</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">mid_i</span> = start_i + (end_i - start_i) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">match</span> val.<span class="title function_ invoke__">cmp</span>(&amp;arr[mid_i <span class="keyword">as</span> <span class="type">usize</span>]) &#123;</span><br><span class="line">            Ordering::Less =&gt; Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(&amp;arr, val, start_i, mid_i - <span class="number">1</span>),</span><br><span class="line">            Ordering::Greater =&gt; Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(&amp;arr, val, mid_i + <span class="number">1</span>, end_i),</span><br><span class="line">            Ordering::Equal =&gt; &#123;</span><br><span class="line">                <span class="keyword">let</span> <span class="variable">l</span> = Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(arr, val, start_i, mid_i - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">let</span> <span class="variable">r</span> = Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(arr, val, mid_i + <span class="number">1</span>, end_i);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">match</span> (l[<span class="number">0</span>], r[<span class="number">1</span>]) &#123;</span><br><span class="line">                    (-<span class="number">1</span>, -<span class="number">1</span>) =&gt; <span class="built_in">vec!</span>[mid_i, mid_i],</span><br><span class="line">                    (-<span class="number">1</span>, new_r) =&gt; <span class="built_in">vec!</span>[mid_i, new_r],</span><br><span class="line">                    (new_l, -<span class="number">1</span>) =&gt; <span class="built_in">vec!</span>[new_l, mid_i],</span><br><span class="line">                    (new_l, new_r) =&gt; <span class="built_in">vec!</span>[new_l, new_r]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><p>Improvements</p>
-<ul>
-<li>avoid overflows in some edge cases</li>
-<li>move the recursion function into <code>Solution</code> struct</li>
-<li>more rusty coding style</li>
-</ul>
-<p>Learned</p>
-<ul>
-<li>Combo of <code>cmp</code> &amp; <code>match</code></li>
-<li>How to use the function itself in a implementation<br>  -&gt; <code>Solution::bst_search_index_inner</code></li>
-</ul>
 
       
     </div>
