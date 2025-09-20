@@ -67,3 +67,6 @@ But the tools that support this process vary greatly depending on the user.
 - For beginners, tools should inspire and simplify.
 
 The essence never changes, but the path each user takes can — and should — look very different.
+
+Ultimately, choosing which users to target is a business strategy decision.
+It’s also important to recognize that tools for professionals and tools for beginners often conflict in their design goals, which makes focus and prioritization critical.
