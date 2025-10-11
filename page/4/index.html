@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -163,6 +163,99 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/05/18/js-rest-parameter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/18/js-rest-parameter/" class="post-title-link" itemprop="url">Javascript: Rest Parameter</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-18 16:46:49" itemprop="dateCreated datePublished" datetime="2022-05-18T16:46:49+08:00">2022-05-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rest.js</span></span><br><span class="line"><span class="keyword">const</span> row = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;Amy&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">32</span>,</span><br><span class="line">    <span class="attr">email</span>: <span class="string">&quot;amy@gamil.com&quot;</span>,</span><br><span class="line">    <span class="attr">job</span>: <span class="string">&quot;cook&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">job</span>: a, <span class="attr">none</span>: b, ...rest_props &#125; = row;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a); <span class="comment">// maps to property &quot;job&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;---&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// property &quot;none&quot; doesn&#x27;t exist so b is undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;---&quot;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(rest_props); <span class="comment">// row but without &quot;job&quot; property </span></span><br></pre></td></tr></table></figure>
+<p>run the code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ node rest.js                                                                                           </span><br><span class="line">cook</span><br><span class="line">---</span><br><span class="line">undefined</span><br><span class="line">---</span><br><span class="line">&#123; name: <span class="string">&#x27;Amy&#x27;</span>, age: 32, email: <span class="string">&#x27;amy@gamil.com&#x27;</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="More"><a href="#More" class="headerlink" title="More"></a>More</h3><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">rest parameter</a> is not <a target="_blank" rel="noopener external nofollow noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">spread syntax</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.freecodecamp.org/news/javascript-rest-vs-spread-operators/">https://www.freecodecamp.org/news/javascript-rest-vs-spread-operators/</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://cloud.tencent.com/developer/article/1891988">JavaScript 里三个点 … 的用法</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1132,98 +1225,6 @@
 <p>相信很多人進場後都會面臨這個問題：該跑步就好，還是生鞋子來賣？<br>因為鑄造鞋子會花費 GST，但賣鞋時的獲利是 SOL。<br>所以當 GST 價格偏低時，比較適合鑄造新鞋子，因為可以用較便宜的 GST 去套利 SOL。</p>
 <p>以下就分享一個超讚的計算機，幫我們以當前幣價估算，建議你目前該跑步還是生鞋！<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.workitwallet.com/post/stepn-buy-vs-mint">workitwallet</a></p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/04/13/rust-string-101/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/13/rust-string-101/" class="post-title-link" itemprop="url">Rust: String 101</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-13 23:28:05" itemprop="dateCreated datePublished" datetime="2022-04-13T23:28:05+08:00">2022-04-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Rust/" itemprop="url" rel="index"><span itemprop="name">Rust</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">str</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;Hello &quot;</span>);</span><br><span class="line">    <span class="comment">// let mut str = &quot;Hello &quot;; &lt;- this won&#x27;t work</span></span><br><span class="line">    <span class="comment">// let mut str = &quot;Hello &quot;.to_string(); &lt;- this works</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Now str: &#123;&#125;&quot;</span>, <span class="type">str</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Get length &amp; capacity of a string</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Length: &#123;&#125; Capacity: &#123;&#125;&quot;</span>, <span class="type">str</span>.<span class="title function_ invoke__">len</span>(), <span class="type">str</span>.<span class="title function_ invoke__">capacity</span>());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Push char</span></span><br><span class="line">    <span class="type">str</span>.<span class="title function_ invoke__">push</span>(<span class="string">&#x27;R&#x27;</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Now str: &#123;&#125;&quot;</span>, <span class="type">str</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Push string</span></span><br><span class="line">    <span class="type">str</span>.<span class="title function_ invoke__">push_str</span>(<span class="string">&quot;ust&quot;</span>); <span class="comment">// capacity is doubled to 12</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Now str: &#123;&#125;&quot;</span>, <span class="type">str</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Check if empty</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Is empty: &#123;&#125;&quot;</span>, <span class="type">str</span>.<span class="title function_ invoke__">is_empty</span>());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Check if contains</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Contains &#x27;PHP&#x27;? &#123;&#125;&quot;</span>, <span class="type">str</span>.<span class="title function_ invoke__">contains</span>(<span class="string">&quot;PHP&quot;</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Replace substring with</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Replace output: &#123;&#125;&quot;</span>, <span class="type">str</span>.<span class="title function_ invoke__">replace</span>(<span class="string">&quot;Rust&quot;</span>, <span class="string">&quot;Solana&quot;</span>));</span><br><span class="line">    <span class="comment">// replace is not a in-place operation</span></span><br><span class="line">    <span class="comment">// so value of str is still &quot;Hello Rust&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Iterate a string by word (whitespace)</span></span><br><span class="line">    <span class="keyword">for</span> <span class="variable">word</span> <span class="keyword">in</span> <span class="type">str</span>.<span class="title function_ invoke__">split_whitespace</span>() &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, word);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create a string with capacity</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">str_with_cap_10</span> = <span class="type">String</span>::<span class="title function_ invoke__">with_capacity</span>(<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Length: &#123;&#125; Capacity: &#123;&#125;&quot;</span>, str_with_cap_10.<span class="title function_ invoke__">len</span>(), str_with_cap_10.<span class="title function_ invoke__">capacity</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>The above outputs the following:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Now str: Hello </span><br><span class="line">Length: 6 Capacity: 6</span><br><span class="line">Now str: Hello R</span><br><span class="line">Now str: Hello Rust</span><br><span class="line">Is empty: false</span><br><span class="line">Contains &#x27;PHP&#x27;? false</span><br><span class="line">Replace output: Hello Solana</span><br><span class="line">Hello</span><br><span class="line">Rust</span><br><span class="line">Length: 0 Capacity: 10</span><br></pre></td></tr></table></figure>
-
-<h2 id="Use-“-”-to-append-string"><a href="#Use-“-”-to-append-string" class="headerlink" title="Use “+” to append string"></a>Use “+” to append string</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">s1</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">s2</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot; Rust&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">s3</span> = s1 + &amp;s2; <span class="comment">// Note: s1 is no longer valid since it&#x27;s ownership is moved to s3</span></span><br><span class="line"><span class="comment">// s3 = &quot;Hello Rust&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Use-format-macro-to-combine-strings"><a href="#Use-format-macro-to-combine-strings" class="headerlink" title="Use format! macro to combine strings"></a>Use format! macro to combine strings</h2><p>imagine we need to append strings by dashes</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">s1</span> = <span class="string">&quot;rust&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="variable">s2</span> = <span class="string">&quot;ruby&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="variable">s3</span> = <span class="string">&quot;ray&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="variable">combined_str</span> = <span class="built_in">format!</span>(<span class="string">&quot;&#123;&#125;-&#123;&#125;-&#123;&#125;&quot;</span>, s1, s2, s3);</span><br><span class="line"><span class="comment">// combined_str = &quot;rust-rude-ray&quot;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
