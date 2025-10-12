@@ -1,0 +1,13 @@
+---
+title: solitude-profile-02-human-voice
+date: 2025-10-11 20:31:33
+categories:
+tags:
+    - solitude-profile
+---
+## 孤獨側寫 02：人聲
+
+我是 podcast、直播等內容的中使用者。
+必須是中文的。
+但可以是沒內容的，例如政論節目、已知的、或明顯迎合某類觀眾的。
+刷牙時、煮飯時、穿鞋時、運動時、打遊戲時、睡醒時、睡前時，我都會放著。
