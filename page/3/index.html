@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -163,6 +163,107 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/10/14/dynamic-programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/14/dynamic-programming/" class="post-title-link" itemprop="url">Dynamic Programming</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-10-15 03:31:29" itemprop="dateCreated datePublished" datetime="2022-10-15T03:31:29+08:00">2022-10-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Strategies"><a href="#Strategies" class="headerlink" title="Strategies"></a>Strategies</h2><h3 id="Memoization-Top-down"><a href="#Memoization-Top-down" class="headerlink" title="Memoization (Top-down)"></a>Memoization (Top-down)</h3><ol>
+<li>make it works first<ol>
+<li>draw the tree</li>
+<li>implement &amp; test if the answer is correct (when small cases)</li>
+</ol>
+</li>
+<li>then make it efficient<ol>
+<li>add a memo with base case return values</li>
+<li>store new values in the memo</li>
+</ol>
+</li>
+</ol>
+<h3 id="Tabulation-Bottom-up"><a href="#Tabulation-Bottom-up" class="headerlink" title="Tabulation (Bottom-up)"></a>Tabulation (Bottom-up)</h3><ol>
+<li>create a table based on the input</li>
+<li>fill it with default &amp; base-case values</li>
+<li>iterate through to generate the next value based on the current value</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -998,112 +1099,6 @@
 
 <p>We can also call it in Python:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> maya <span class="keyword">import</span> cmds</span><br><span class="line">cmds.helloWorld</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/06/01/go-protobuf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/01/go-protobuf/" class="post-title-link" itemprop="url">GO: Proto Buffer</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-01 21:57:43" itemprop="dateCreated datePublished" datetime="2022-06-01T21:57:43+08:00">2022-06-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Go/" itemprop="url" rel="index"><span itemprop="name">Go</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Doc:<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://developers.google.com/protocol-buffers/docs/gotutorial">https://developers.google.com/protocol-buffers/docs/gotutorial</a></p>
-<h3 id="Proto-Buffer"><a href="#Proto-Buffer" class="headerlink" title="Proto Buffer"></a>Proto Buffer</h3><p>Download Proto Buffer:<br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://developers.google.com/protocol-buffers/docs/downloads">https://developers.google.com/protocol-buffers/docs/downloads</a></p>
-<p>Check if <code>protoc</code> installed</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">protoc --version</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Install-protoc-gen-go"><a href="#Install-protoc-gen-go" class="headerlink" title="Install protoc-gen-go"></a>Install <code>protoc-gen-go</code></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">go install google.golang.org/protobuf/cmd/protoc-gen-go@latest</span></span><br></pre></td></tr></table></figure>
-<p>Add these text to <code>~/.bashrc</code> or <code>~/.zshrc</code> (depends on what shell you use)</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GOPATH=$HOME/go</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br></pre></td></tr></table></figure>
-<p>This step is important to avoid <code>Error &quot;protoc-gen-go: program not found or is not executable&quot;</code></p>
-<h3 id="proto-File"><a href="#proto-File" class="headerlink" title=".proto File"></a><code>.proto</code> File</h3><p><code>.proto</code> example:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">syntax = &quot;proto3&quot;;</span><br><span class="line"></span><br><span class="line">package proto;</span><br><span class="line"></span><br><span class="line">option go_package =&quot;../proto&quot;; // avoid &quot;unable to determine go import path&quot;</span><br><span class="line"></span><br><span class="line">message Request &#123;</span><br><span class="line">    int64 a = 1;</span><br><span class="line">    int64 b = 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message Response &#123;</span><br><span class="line">    int64 result = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">service AddService &#123;</span><br><span class="line">    rpc Add(Request) returns (Response);</span><br><span class="line">    rpc Multiply(Request) returns (Response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Scaffolding:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">└── proto/</span><br><span class="line">   └── package.proto</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> proto</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">protoc --go_out=plugins=grpc:. service.proto</span>   </span><br></pre></td></tr></table></figure>
-<p><code>plugins=grpc</code> is needed or the output file will lack some functions</p>
-<h3 id="Install-grpc"><a href="#Install-grpc" class="headerlink" title="Install grpc"></a>Install <code>grpc</code></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">go get -u google.golang.org/grpc</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li>How to Solve Error: unable to determine go import path: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://developpaper.com/protocol-gen-go-unable-to-determine-go-import-path-when-exporting-protocol/">https://developpaper.com/protocol-gen-go-unable-to-determine-go-import-path-when-exporting-protocol/</a></li>
-</ul>
-
       
     </div>
 
