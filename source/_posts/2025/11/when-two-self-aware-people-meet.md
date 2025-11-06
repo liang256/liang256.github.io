@@ -4,7 +4,6 @@ date: 2025-11-06 10:46:12
 categories:
 tags:
 ---
-# When Two Self-Aware People Meet
 It’s not a spark.
 It’s static.
 

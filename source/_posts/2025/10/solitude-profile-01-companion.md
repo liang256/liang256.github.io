@@ -1,12 +1,10 @@
 ---
-title: solitude-profile-01-companion
+title: "孤獨側寫 01：旅伴"
 date: 2025-10-11 20:18:04
 categories:
 tags:
     - solitude-profile
 ---
-## 孤獨側寫 01：旅伴
-
 尋求旅伴。
 在開放世界遊戲裡尋求旅伴。
 在開放世界遊戲裡，即使能自己幹翻整窩敵人還是尋求旅伴。

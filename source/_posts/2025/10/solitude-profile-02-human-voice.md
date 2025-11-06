@@ -1,12 +1,10 @@
 ---
-title: solitude-profile-02-human-voice
+title: "孤獨側寫 02：人聲"
 date: 2025-10-11 20:31:33
 categories:
 tags:
     - solitude-profile
 ---
-## 孤獨側寫 02：人聲
-
 我是 podcast、直播等內容的重度使用者。
 必須是中文的。
 但可以是沒內容的，例如政論節目、已知的、或明顯迎合某類觀眾的。
