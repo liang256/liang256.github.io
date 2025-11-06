@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -163,6 +163,388 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/07/20/go-leetcode-crop-n-length-string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/20/go-leetcode-crop-n-length-string/" class="post-title-link" itemprop="url">Go Leetcode: Crop N Length String</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-20 16:31:12" itemprop="dateCreated datePublished" datetime="2022-07-20T16:31:12+08:00">2022-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Given a string <code>s</code>, return a cropped which max length is <code>n</code>.<br>Also, spaces at prefix and postfix need to be removed.</p>
+<p>Example 1:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;Hello World&quot;, 8</span><br><span class="line">Output: &quot;Hello&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Example 2:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;   Hello World   &quot;, 100</span><br><span class="line">Output: &quot;Hello World&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Example 3:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;Hello World&quot;, 3</span><br><span class="line">Output: &quot;&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="Thought"><a href="#Thought" class="headerlink" title="Thought"></a>Thought</h2><p>Find the start point <code>l</code> and end point <code>r</code> then return result <code>s[l:r]</code><br>Left point is easy to find. If <code>s[l]</code> is space, pointer <code>l</code> move right.<br>On the other hand, <code>r</code> starts from <code>l + N</code>, if <code>s[r]</code> is NOT space, pointer <code>r</code> move left.</p>
+<p><img src="/2022/07/20/go-leetcode-crop-n-length-string/thought.png"></p>
+<p>The tricky point is that if the given string’s length equals to given <code>n</code>,<br>and the string ends with character, the last word would be cropped.</p>
+<p>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;Learn Golang&quot;, 12</span><br><span class="line">Output: &quot;Learn&quot;</span><br><span class="line">Expected: &quot;Learn Golang&quot;</span><br></pre></td></tr></table></figure>
+
+<p>An easy solution is to append a SPACE to the given string at the beginning.</p>
+<p><img src="/2022/07/20/go-leetcode-crop-n-length-string/append-space.png"></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">crop</span><span class="params">(s <span class="type">string</span>, n <span class="type">int</span>)</span></span> <span class="type">string</span> &#123;</span><br><span class="line">	s = s + <span class="string">&quot; &quot;</span> <span class="comment">// append an extra space</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// keep moving right until reaching the first character</span></span><br><span class="line">	l := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> l &lt; <span class="built_in">len</span>(s)<span class="number">-1</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> s[l] == <span class="string">&#x27; &#x27;</span> &#123;</span><br><span class="line">			l++</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// start from `l+n` or the last char (extra space)</span></span><br><span class="line">    <span class="comment">// keep moving left until reaching the first space</span></span><br><span class="line">	r := min(l+n, <span class="built_in">len</span>(s)<span class="number">-1</span>)</span><br><span class="line">	<span class="keyword">for</span> r &gt; l &#123;</span><br><span class="line">		<span class="keyword">if</span> s[r] == <span class="string">&#x27; &#x27;</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			r--</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s[l:r]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">min</span><span class="params">(i, j <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> i &lt; j &#123;</span><br><span class="line">		<span class="keyword">return</span> i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> j</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/07/01/first-opengl-app-on-mac-xcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/01/first-opengl-app-on-mac-xcode/" class="post-title-link" itemprop="url">First OpenGL App On Mac | Xcode</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-01 13:53:45" itemprop="dateCreated datePublished" datetime="2022-07-01T13:53:45+08:00">2022-07-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h3><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jianshu.com/p/eedc41051bd9">Follow this tutorial</a></p>
+<h3 id="New-C-Project-in-Xcode"><a href="#New-C-Project-in-Xcode" class="headerlink" title="New C++ Project in Xcode"></a>New C++ Project in Xcode</h3><p>Select command line tool<br><img src="/2022/07/01/first-opengl-app-on-mac-xcode/new.png"></p>
+<h3 id="Edit-Header-Search-Paths-Library-Search-Paths"><a href="#Edit-Header-Search-Paths-Library-Search-Paths" class="headerlink" title="Edit Header Search Paths &amp; Library Search Paths"></a>Edit Header Search Paths &amp; Library Search Paths</h3><p>I could not find where to edit <code>Header Search Paths</code> and <code>Library Search Paths</code> until I found this <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.youtube.com/watch?v=hrPm7tWC-BI">Toutube tutorial</a>.</p>
+<p><img src="/2022/07/01/first-opengl-app-on-mac-xcode/path.png"></p>
+<h3 id="Set-additional-preferences-like-below"><a href="#Set-additional-preferences-like-below" class="headerlink" title="Set additional preferences like below"></a>Set additional preferences like below</h3><p><img src="/2022/07/01/first-opengl-app-on-mac-xcode/signing_capabilities.png"></p>
+<p>build shorcut in xCode: <code>command + b</code></p>
+<h3 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h3><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jianshu.com/p/eedc41051bd9">Simple OpenGL App on Mac</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.youtube.com/watch?v=hrPm7tWC-BI">How to fix C++ header file not found in Xcode</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://stackoverflow.com/questions/67049987/xcode-gives-error-when-i-add-libraries-dyld-library-not-loaded">Xcode gives error when I add libraries: dyld: Library not loaded</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.cnblogs.com/fijiisland/p/14057950.html">环境配置: macOS配置GLAD+GLFW的OpenGL环境(CMake &#x2F; CLion)</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/06/23/maya-api-debug-on-mac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/23/maya-api-debug-on-mac/" class="post-title-link" itemprop="url">Maya API For C++: How To Debug On Mac</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-23 03:19:13" itemprop="dateCreated datePublished" datetime="2022-06-23T03:19:13+08:00">2022-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Maya/" itemprop="url" rel="index"><span itemprop="name">Maya</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>There is no <strong>output window</strong> in Mac’s Maya so I can’t print out text by <code>std::out</code>. The only way I know is to use <code>Global::displayInfo</code>. However, <code>Global::displayInfo</code> only accepts <code>MString</code>. I haven’t digged into what <code>MString</code> is yet but just provide some examples here. Hope you can get the basic idea:)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Global::<span class="built_in">displayInfo</span>(<span class="string">&quot;hello&quot;</span>); <span class="comment">// Works</span></span><br><span class="line"></span><br><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">Global::<span class="built_in">displayInfo</span>(str); <span class="comment">// This will fail</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> str[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">sprintf</span>(str, <span class="string">&quot;hello&quot;</span>); <span class="comment">// Writes content to `str`</span></span><br><span class="line">Global::<span class="built_in">displayInfo</span>(str); <span class="comment">// Works</span></span><br></pre></td></tr></table></figure>
+<p>In this way, we can also print out <strong>numeric types</strong>!</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">flaot value = <span class="number">100.0f</span>;</span><br><span class="line"><span class="type">char</span> str[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">sprintf</span>(str, <span class="string">&quot;value:%f&quot;</span>, value);</span><br><span class="line">Global::<span class="built_in">displayInfo</span>(str);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/06/23/maya-api-basics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/23/maya-api-basics/" class="post-title-link" itemprop="url">Maya API Basics</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-23 02:55:31" itemprop="dateCreated datePublished" datetime="2022-06-23T02:55:31+08:00">2022-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Maya/" itemprop="url" rel="index"><span itemprop="name">Maya</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h3><ul>
+<li>MObjects<ul>
+<li>class to handle all kinds of data in Maya</li>
+<li>a handle object pointing to actual data</li>
+<li>typeless</li>
+</ul>
+</li>
+<li>Function Sets<ul>
+<li>work with mobject</li>
+</ul>
+</li>
+<li>Wrappers<ul>
+<li>allocated and deallocated by you</li>
+</ul>
+</li>
+<li>Proxies<ul>
+<li>used to create custom maya objects (i.e. <code>MPxNode</code>, <code>MPxDeformerNode</code>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h3><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.chadvernon.com/maya-api-programming/#introduction">Maya API Programming by Chad Vernon</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -664,7 +1046,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/05/05/leetcode-rebuild-tree-from-inord-and-preord-traversal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -682,7 +1064,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/" class="post-title-link" itemprop="url">Solve Leetcode in Rust: Rebuild A Tree From An Inorder and A Preorder Traversal</a>
+          <a href="/2022/05/05/leetcode-rebuild-tree-from-inord-and-preord-traversal/" class="post-title-link" itemprop="url">Solve Leetcode in Rust: Rebuild A Tree From An Inorder and A Preorder Traversal</a>
         </h2>
 
         <div class="post-meta-container">
@@ -723,7 +1105,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Given a inorder-traversal result and a preorder-traversal result of a tree, Figure out the tree structure.</p>
-<p><img src="/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/given-inorder-and-preorder.png"></p>
+<p><img src="/2022/05/05/leetcode-rebuild-tree-from-inord-and-preord-traversal/given-inorder-and-preorder.png"></p>
 <p>For example:</p>
 <ul>
 <li>inorder: 1,2,3,4,5,6,7</li>
@@ -731,477 +1113,11 @@
 </ul>
 <p>What is the structure of this tree? Can we build a tree based on these two clues?</p>
 <h2 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h2><p>The first element of preorder-traversal must be the Root of a tree. On the other hand, we can determine left and right from inorder-traversal after we get the root. As the result, we can again get inorder and preorder result of left-sub-tree and right-sub-tree, then both left and right redo above process until they get no or only one element.</p>
-<p><img src="/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/process.png"></p>
+<p><img src="/2022/05/05/leetcode-rebuild-tree-from-inord-and-preord-traversal/process.png"></p>
 <p>Overview the tree for now</p>
-<p><img src="/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/result.png"></p>
+<p><img src="/2022/05/05/leetcode-rebuild-tree-from-inord-and-preord-traversal/result.png"></p>
 <p>So we can expect we can get the whole tree if we repeat the process.</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> val: <span class="type">i32</span>,</span><br><span class="line">    <span class="keyword">pub</span> left: <span class="type">Option</span>&lt;<span class="type">Box</span>&lt;Node&gt;&gt;,</span><br><span class="line">    <span class="keyword">pub</span> right: <span class="type">Option</span>&lt;<span class="type">Box</span>&lt;Node&gt;&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">new</span>(val: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="keyword">Self</span> &#123;</span><br><span class="line">        Node &#123; </span><br><span class="line">            val,</span><br><span class="line">            left: <span class="literal">None</span>,</span><br><span class="line">            right: <span class="literal">None</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">inorder_traversal</span>(&amp;<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="variable">Some</span>(left) = &amp;<span class="keyword">self</span>.left &#123;</span><br><span class="line">            left.<span class="title function_ invoke__">inorder_traversal</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, &amp;<span class="keyword">self</span>.val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="variable">Some</span>(right) = &amp;<span class="keyword">self</span>.right &#123;</span><br><span class="line">            right.<span class="title function_ invoke__">inorder_traversal</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">preorder_traversal</span>(&amp;<span class="keyword">self</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, &amp;<span class="keyword">self</span>.val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="variable">Some</span>(left) = &amp;<span class="keyword">self</span>.left &#123;</span><br><span class="line">            left.<span class="title function_ invoke__">preorder_traversal</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="variable">Some</span>(right) = &amp;<span class="keyword">self</span>.right &#123;</span><br><span class="line">            right.<span class="title function_ invoke__">preorder_traversal</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">rebuild_tree</span>(inord_arr: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, preord_arr: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;) <span class="punctuation">-&gt;</span> Node &#123;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">let</span> <span class="variable">root_val</span> = preord_arr[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">root</span> = Node::<span class="title function_ invoke__">new</span>(root_val);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Find the index of root from inorder result</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">inord_arr_root_i</span> = inord_arr</span><br><span class="line">        .<span class="title function_ invoke__">iter</span>()</span><br><span class="line">        .<span class="title function_ invoke__">position</span>(|&amp;x| x == root_val)</span><br><span class="line">        .<span class="title function_ invoke__">unwrap</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">inord_left_sub_len</span> = inord_arr_root_i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> inord_left_sub_len == <span class="number">1</span> &#123;</span><br><span class="line">        root.left = <span class="title function_ invoke__">Some</span>(<span class="type">Box</span>::<span class="title function_ invoke__">new</span>(Node::<span class="title function_ invoke__">new</span>(inord_arr[<span class="number">0</span>])));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> inord_left_sub_len &gt; <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">preord_left_sub_vec</span> = preord_arr[<span class="number">1</span>..inord_left_sub_len+<span class="number">1</span>].<span class="title function_ invoke__">to_vec</span>();</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">inord_left_sub_vec</span> = inord_arr[..inord_arr_root_i].<span class="title function_ invoke__">to_vec</span>();</span><br><span class="line">        root.left = <span class="title function_ invoke__">Some</span>(</span><br><span class="line">            <span class="type">Box</span>::<span class="title function_ invoke__">new</span>(<span class="title function_ invoke__">rebuild_tree</span>(</span><br><span class="line">                &amp;inord_left_sub_vec,</span><br><span class="line">                &amp;preord_left_sub_vec</span><br><span class="line">            ))</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">inord_right_sub_len</span> = inord_arr.<span class="title function_ invoke__">len</span>() - inord_left_sub_len - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> inord_right_sub_len == <span class="number">1</span> &#123;</span><br><span class="line">        root.right = <span class="title function_ invoke__">Some</span>(<span class="type">Box</span>::<span class="title function_ invoke__">new</span>(Node::<span class="title function_ invoke__">new</span>(inord_arr[inord_arr_root_i + <span class="number">1</span>])));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> inord_right_sub_len &gt; <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">preord_right_sub_vec</span> = preord_arr[<span class="number">1</span>+inord_left_sub_len..].<span class="title function_ invoke__">to_vec</span>();</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">inord_right_sub_vec</span> = inord_arr[inord_arr_root_i+<span class="number">1</span>..].<span class="title function_ invoke__">to_vec</span>();</span><br><span class="line">        root.right = <span class="title function_ invoke__">Some</span>(</span><br><span class="line">            <span class="type">Box</span>::<span class="title function_ invoke__">new</span>(<span class="title function_ invoke__">rebuild_tree</span>(</span><br><span class="line">                &amp;inord_right_sub_vec,</span><br><span class="line">                &amp;preord_right_sub_vec</span><br><span class="line">            ))</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    root</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">inord_vec</span> = <span class="built_in">vec!</span>[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">preord_vec</span> = <span class="built_in">vec!</span>[<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">rebuild_tree_n</span> = <span class="title function_ invoke__">rebuild_tree</span>(&amp;inord_vec, &amp;preord_vec);</span><br><span class="line"></span><br><span class="line">    rebuild_tree_n.<span class="title function_ invoke__">inorder_traversal</span>(); <span class="comment">// 1,2,3,4,5,6,7</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;--------&quot;</span>);</span><br><span class="line">    rebuild_tree_n.<span class="title function_ invoke__">preorder_traversal</span>(); <span class="comment">// 5,2,1,4,3,6,7</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/04/29/koko-eating-bananas/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/29/koko-eating-bananas/" class="post-title-link" itemprop="url">Solve Leetcode in Rust: Koko Eating Bananas</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-30 00:05:19" itemprop="dateCreated datePublished" datetime="2022-04-30T00:05:19+08:00">2022-04-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Problem: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://leetcode.com/problems/koko-eating-bananas/">Koko Eating Bananas</a></p>
-<p>Let’s draw some pictures to understand this quesiton. If there are 4 piles of bananas like below, the given array would be <code>[3, 2, 4, 1]</code>.</p>
-<p><img src="https://i.imgur.com/qLpwHkN.png"></p>
-<p>Then if Koko can eat 3 bananas per hour, it will takes her 5 hours to eat all the bananas like blow.</p>
-<p><img src="https://i.imgur.com/WTtMmez.png"></p>
-<p>Now, if the limit hours <code>h</code> is 5 then 3 bananas per hour satisfies. However, if <code>h</code>, for example, is 3, then Koko need to SPEEDS UP to finish all the bananas. On the other hand, if <code>h</code> is 10 which means we still have time right? So Koko should SLOW DOWN to certain speed to make herself chill but still can finish all the bananas in time.</p>
-<p><img src="https://i.imgur.com/2QpNhfI.png"></p>
-<p>So what is the best eating speed is the question!</p>
-<h2 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h2><ul>
-<li>The maximum of speed should equals to the number of the bananas of the tallest pile</li>
-<li>The minimun of speed should equals to 1</li>
-</ul>
-<p>Which means we are trying to find the best from <code>1</code> ~ <code>piles.max()</code>. Searching a value from a sorted array… maybe binary search is a soslution.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="Try-1"><a href="#Try-1" class="headerlink" title="Try #1"></a>Try #1</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::cmp::Ordering;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">min_eating_speed</span>(piles: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, h: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">sorted_piles</span> = piles.<span class="title function_ invoke__">clone</span>();</span><br><span class="line">        sorted_piles.<span class="title function_ invoke__">sort</span>();</span><br><span class="line">        Solution::<span class="title function_ invoke__">min_eating_speed_inner</span>(</span><br><span class="line">            &amp;sorted_piles,</span><br><span class="line">            h,</span><br><span class="line">            <span class="number">1</span>,</span><br><span class="line">            *sorted_piles.<span class="title function_ invoke__">last</span>().<span class="title function_ invoke__">unwrap</span>()</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">min_eating_speed_inner</span>(piles: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, h: <span class="type">i32</span>, min: <span class="type">i32</span>, max: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="comment">// return codition</span></span><br><span class="line">        <span class="keyword">if</span> piles.<span class="title function_ invoke__">len</span>() == <span class="number">0</span> || min &gt; max &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// speeds arr is [min..max]</span></span><br><span class="line">        <span class="comment">// so the mid speed is (min + max) / 2</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">mid</span> = min + (max - min) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// piles divides speed return spend time</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">time</span> = Solution::<span class="title function_ invoke__">count_eating_time</span>(&amp;piles, mid);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// find the matched speed or continue go down to sub tree</span></span><br><span class="line">        <span class="keyword">match</span> time.<span class="title function_ invoke__">cmp</span>(&amp;h) &#123;</span><br><span class="line">            <span class="comment">// spend too much time to eat, speed up</span></span><br><span class="line">            Ordering::Greater =&gt; Solution::<span class="title function_ invoke__">min_eating_speed_inner</span>(piles, h, mid + <span class="number">1</span>, max),</span><br><span class="line">            <span class="comment">// match, try to find a better (slower) speed</span></span><br><span class="line">            _ =&gt; &#123;</span><br><span class="line">                <span class="keyword">let</span> <span class="variable">new_speed</span> = Solution::<span class="title function_ invoke__">min_eating_speed_inner</span>(piles, h, min, mid - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> new_speed &gt; <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> new_speed;</span><br><span class="line">                &#125;</span><br><span class="line">                mid</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">count_eating_time</span>(piles: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, speed: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="comment">// count the time to eat each pile and return sum</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">sum</span> = piles</span><br><span class="line">            .<span class="title function_ invoke__">into_iter</span>()</span><br><span class="line">            .<span class="title function_ invoke__">map</span>(|pile| &#123;</span><br><span class="line">                <span class="keyword">if</span> pile % speed &gt; <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> pile / speed + <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> pile / speed</span><br><span class="line">            &#125;)</span><br><span class="line">            .<span class="title function_ invoke__">sum</span>();</span><br><span class="line"></span><br><span class="line">        sum</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/" class="post-title-link" itemprop="url">Solve Leetcode in Rust: Find The First And The Last Position of Element In A Sorted Array</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-28 11:23:07" itemprop="dateCreated datePublished" datetime="2022-04-28T11:23:07+08:00">2022-04-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h2><p>The core concept is to find the target from a sorted array which is quite suitable to use binary serach I think.</p>
-<p>Here are my instructions:</p>
-<ol>
-<li>Get the middle element, <code>mid</code></li>
-<li>Compare the <code>mid</code> with the target. there will be 3 branches:<br> a. <code>target</code> &lt; <code>mid</code>: continue to find the target from the LEFT side of the <code>mid</code><br> b. <code>target</code> &gt; <code>mid</code>: continue to find the target from the RIGHT side of the <code>mid</code><br> c. <code>target</code> &#x3D; <code>mid</code>: In this case, <code>[index_of_mid, index_of_mid]</code> will be our base answer so keep it. Then based on this answer, we need to go further to the both left and right to seek if there is other elements match to the search target.</li>
-</ol>
-<p>For example, if the given array is <code>[1, 2, 3, 4, 4, 4, 4, 6, 9]</code>, and the search target is <code>4</code>.</p>
-<p>Then we are trying to get this green range.</p>
-<p><img src="/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/green_range.png"></p>
-<p>When we go through the instructions, we will get the middle element, and hit the c case.</p>
-<p><img src="/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/mid.png"></p>
-<p>Then base on this position, we seek towar left and right to get the final range.</p>
-<p><img src="/2022/04/27/leetcode34-find-first-and-last-position-of-element-in-sorted-array/seek_left_n_right.png"></p>
-<p>So the answer should be <code>[3, 6]</code></p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="Try-1"><a href="#Try-1" class="headerlink" title="Try #1"></a>Try #1</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">search_range</span>(nums: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, target: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> nums.<span class="title function_ invoke__">len</span>() == <span class="number">0</span> &#123;<span class="keyword">return</span> <span class="built_in">vec!</span>[-<span class="number">1</span>,-<span class="number">1</span>]&#125;</span><br><span class="line">        <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;nums, target, <span class="number">0</span>, (nums.<span class="title function_ invoke__">len</span>()-<span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>)</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">bst_search_index_rec</span>(arr: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, val: <span class="type">i32</span>, start_i: <span class="type">i32</span>, end_i: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> start_i &gt; end_i &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">vec!</span>[-<span class="number">1</span>, -<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">result</span>: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; = <span class="built_in">vec!</span>[-<span class="number">1</span>, -<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">mid_i</span> = (start_i + end_i)/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> val == arr[mid_i <span class="keyword">as</span> <span class="type">usize</span>] &#123;</span><br><span class="line">        result[<span class="number">0</span>] = mid_i <span class="keyword">as</span> <span class="type">i32</span>;</span><br><span class="line">        result[<span class="number">1</span>] = mid_i <span class="keyword">as</span> <span class="type">i32</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> <span class="variable">tmp_left_result</span> = <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;arr, val, start_i, (mid_i-<span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>);</span><br><span class="line">        <span class="keyword">if</span> tmp_left_result[<span class="number">0</span>] != -<span class="number">1</span> &#123;</span><br><span class="line">            result[<span class="number">0</span>] = tmp_left_result[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">tmp_right_result</span> = <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;arr, val, (mid_i+<span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>, end_i);</span><br><span class="line">        <span class="keyword">if</span> tmp_right_result[<span class="number">1</span>] != -<span class="number">1</span> &#123;</span><br><span class="line">            result[<span class="number">1</span>] = tmp_right_result[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> val &lt; arr[mid_i <span class="keyword">as</span> <span class="type">usize</span>] &#123;</span><br><span class="line">        result = <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;arr, val, start_i, (mid_i - <span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> val &gt; arr[mid_i <span class="keyword">as</span> <span class="type">usize</span>] &#123;</span><br><span class="line">        result = <span class="title function_ invoke__">bst_search_index_rec</span>(&amp;arr, val, (mid_i + <span class="number">1</span>) <span class="keyword">as</span> <span class="type">i32</span>, end_i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Try-2"><a href="#Try-2" class="headerlink" title="Try #2"></a>Try #2</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::cmp::Ordering; <span class="comment">// Don&#x27;t forget to import this</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">search_range</span>(nums: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, target: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; &#123;</span><br><span class="line"></span><br><span class="line">        Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(&amp;nums, target, <span class="number">0</span>, nums.<span class="title function_ invoke__">len</span>() <span class="keyword">as</span> <span class="type">i32</span> - <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">bst_search_index_inner</span>(arr: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, val: <span class="type">i32</span>, start_i: <span class="type">i32</span>, end_i: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; &#123;</span><br><span class="line">        <span class="comment">// return condition</span></span><br><span class="line">        <span class="keyword">if</span> start_i &gt; end_i || arr.<span class="title function_ invoke__">len</span>() == <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">vec!</span>[-<span class="number">1</span>, -<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// avoid overflows rather than simply (start_i + end_i) / 2</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">mid_i</span> = start_i + (end_i - start_i) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">match</span> val.<span class="title function_ invoke__">cmp</span>(&amp;arr[mid_i <span class="keyword">as</span> <span class="type">usize</span>]) &#123;</span><br><span class="line">            Ordering::Less =&gt; Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(&amp;arr, val, start_i, mid_i - <span class="number">1</span>),</span><br><span class="line">            Ordering::Greater =&gt; Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(&amp;arr, val, mid_i + <span class="number">1</span>, end_i),</span><br><span class="line">            Ordering::Equal =&gt; &#123;</span><br><span class="line">                <span class="keyword">let</span> <span class="variable">l</span> = Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(arr, val, start_i, mid_i - <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">let</span> <span class="variable">r</span> = Solution::<span class="title function_ invoke__">bst_search_index_inner</span>(arr, val, mid_i + <span class="number">1</span>, end_i);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">match</span> (l[<span class="number">0</span>], r[<span class="number">1</span>]) &#123;</span><br><span class="line">                    (-<span class="number">1</span>, -<span class="number">1</span>) =&gt; <span class="built_in">vec!</span>[mid_i, mid_i],</span><br><span class="line">                    (-<span class="number">1</span>, new_r) =&gt; <span class="built_in">vec!</span>[mid_i, new_r],</span><br><span class="line">                    (new_l, -<span class="number">1</span>) =&gt; <span class="built_in">vec!</span>[new_l, mid_i],</span><br><span class="line">                    (new_l, new_r) =&gt; <span class="built_in">vec!</span>[new_l, new_r]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><p>Improvements</p>
-<ul>
-<li>avoid overflows in some edge cases</li>
-<li>move the recursion function into <code>Solution</code> struct</li>
-<li>more rusty coding style</li>
-</ul>
-<p>Learned</p>
-<ul>
-<li>Combo of <code>cmp</code> &amp; <code>match</code></li>
-<li>How to use the function itself in a implementation<br>  -&gt; <code>Solution::bst_search_index_inner</code></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/04/27/rust-checked-sub-n-unwrap-or/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/27/rust-checked-sub-n-unwrap-or/" class="post-title-link" itemprop="url">Rust: checked_sub & unwrap_or</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-28 00:34:33" itemprop="dateCreated datePublished" datetime="2022-04-28T00:34:33+08:00">2022-04-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Rust/" itemprop="url" rel="index"><span itemprop="name">Rust</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Just a quick note for these two functions I learned today.</p>
-<p><code>checked_sub</code> is used to check if the abstraction of an integer overflows. For example:</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">num_u32</span>: <span class="type">u32</span> = <span class="number">0</span>;</span><br><span class="line">num_u32 -= <span class="number">1</span>; <span class="comment">// overflow</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">num_i32</span> = <span class="type">i32</span>::MIN; <span class="comment">// -2147483648</span></span><br><span class="line">num_i32 -= <span class="number">1</span>; <span class="comment">// overflow</span></span><br></pre></td></tr></table></figure>
-
-<p>To prevent it, we can use the combo of <code>checked_sub</code> and <code>unwrap_or</code>. <code>checked_sub</code> will return <code>Option&lt;self&gt;</code> which means if there is no overflow occurs, we get <code>Some(substraction_result)</code>, else we will get <code>None</code>. <code>unwarp_or</code> can then give the result a default value if we get <code>None</code> or just unwrap <code>Some(substraction_result)</code> to return <code>substraction_result</code>. Let’s look at the code.</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">num_i32</span> = <span class="type">i32</span>::MIN + <span class="number">1</span>; <span class="comment">// -2147483648 + 1</span></span><br><span class="line"></span><br><span class="line">num_i32 = num_i32.<span class="title function_ invoke__">checked_sub</span>(<span class="number">1</span>).<span class="title function_ invoke__">unwrap_or</span>(<span class="type">i32</span>::MIN); <span class="comment">// -2147483648</span></span><br><span class="line"></span><br><span class="line">num_i32 = num_i32.<span class="title function_ invoke__">checked_sub</span>(<span class="number">1</span>).<span class="title function_ invoke__">unwrap_or</span>(<span class="number">100</span>); <span class="comment">// 100</span></span><br><span class="line"><span class="comment">// Since it overflows, it will return the default value </span></span><br><span class="line"><span class="comment">// that we give to unwrap_or which is 100 for this example</span></span><br></pre></td></tr></table></figure>
-
-<p>That’s it for today!</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/04/22/understand-solana-token/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/22/understand-solana-token/" class="post-title-link" itemprop="url">超白話理解 Solana 代幣與 NFT</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-22 22:22:39" itemprop="dateCreated datePublished" datetime="2022-04-22T22:22:39+08:00">2022-04-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Crypto-Blockchain/" itemprop="url" rel="index"><span itemprop="name">Crypto/Blockchain</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>希望能以最直觀的方式解釋 Solana 鏈上的代幣，也就是 Token。</p>
-<p>注意！這邊特指是 Solana 的，因為會跟乙太坊的代幣細節上有諸多不同，有興趣可以再去研究一下兩者的差別。</p>
-<p>本文適合那些看了<a target="_blank" rel="noopener external nofollow noreferrer" href="https://spl.solana.com/token">官方文件</a>還是霧嗄嗄 (bū-sà-sà) 的人，像我自己。</p>
-<h2 id="銀行帳戶"><a href="#銀行帳戶" class="headerlink" title="銀行帳戶"></a>銀行帳戶</h2><!-- 解釋一種代幣對應一種帳戶的概念 -->
-
-<p>以外匯為例，假設阿蟹今天要在銀行存美金、日幣、和歐元，那他勢必要開三個對應的帳戶。美金帳戶只能存美金、日幣帳戶只能存日幣、歐元帳戶只能存歐元。</p>
-<p>而 Solana 的代幣其實也是一樣的規則，當我們想要持有某一代幣 (token) 時，我們就必須先創建那個代幣的帳戶 (associated account)，然後才能把代幣轉過去。</p>
-<p>所以想要持有幾種代幣，就需要幾個代幣帳戶。</p>
-<h2 id="鑄幣權"><a href="#鑄幣權" class="headerlink" title="鑄幣權"></a>鑄幣權</h2><!-- 只有代幣創始者可以鑄造 -->
-<p>而除了持有各種幣，我們也可以在 Solana 上發行自己的代幣。</p>
-<p>以美金做比喻的話，「發行」就是美國央行跟大家宣布他要發行一種貨幣，代號為 USD；在實際鑄造 USD 前，USD 的總發行量會為 0。</p>
-<p>接著美國央行可以決定要鑄造多少 USD，而其他人都不可以鑄造 USD。美國央行鑄造出來的 USD ，可以指定給任意對象：可以給央行自己的 USD 帳戶，也可以給到任意對象的 USD 帳戶。</p>
-<p>所以鑄幣權的概念其實滿直觀的：只有該代幣「發行人」有權鑄造 (mint) 該代幣，其他人無法鑄造，但可以被指定爲鑄造出來的代幣的「接收者」 (recipient)，前提是要擁有該代幣的帳戶。</p>
-<h2 id="NFT"><a href="#NFT" class="headerlink" title="NFT"></a>NFT</h2><!-- 跟一般代幣的差別 -->
-
-<p>其實在 Solana 鏈上，NFT 跟我們一開始談的代幣本質上沒有區別，都是 token。</p>
-<p>在 Solana 上發行代幣時，我們可以設定最小單位，預設為 0.000000001；而總量可以有上限，也可以無限。而 NFT 只是最小單位為 1，且發行總量為 1 的代幣！</p>
-<p>NFT on Solana：</p>
-<ul>
-<li>最小單位為 1</li>
-<li>鑄造 1 後即關閉鑄造</li>
-</ul>
-<p>而且一樣的，要存一個 NFT，我們也需要開一個對應的帳戶去存他。</p>
-<h2 id="實際操作"><a href="#實際操作" class="headerlink" title="實際操作"></a>實際操作</h2><p>到上面，其實就已經把 Solana 代幣的概念講完了。</p>
-<p>沒錯，就是這麼簡單～</p>
-<p>以下是比較技術的部分。我們會實際操作 CLI 實作代幣的發行。</p>
-<p>英文不錯的可以直接照著<a target="_blank" rel="noopener external nofollow noreferrer" href="https://spl.solana.com/token">官方文件</a>操作。</p>
-<h3 id="發行代幣"><a href="#發行代幣" class="headerlink" title="發行代幣"></a>發行代幣</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token create-token</span><br></pre></td></tr></table></figure>
-<p>執行結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token create-token</span><br><span class="line">Creating token 4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd</span><br><span class="line"></span><br><span class="line">Signature: 55e32Jz8qdNxsBHd6TKvGQnuPHvDdKf2vYRU8f1CM4UWNR3FaFtYzmMYCHdzJ15z5CZpeXKu4Qgtcf2Bph136KK82qYQ6JPguUvtktoe6y43BAvgN2C3iyYHWZX1GAB6TbXD3B1nNRHFk4Rxcx7uhnAcB4SUGTXTG4</span><br></pre></td></tr></table></figure>
-<p>這樣就發行代幣了！而該代幣的代號為：<code>4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd</code>。每次代號都不同，所以你自己實作時會產生你自己代幣的代號。以下我們都用 <code>&lt;代幣 ID&gt;</code> 表示。</p>
-<h3 id="鑄造"><a href="#鑄造" class="headerlink" title="鑄造"></a>鑄造</h3><p>發行完後，我們可以查看該代幣總量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token supply &lt;代幣 ID&gt;</span><br></pre></td></tr></table></figure>
-<p>執行結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token supply 4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<p>目前代幣總量應為 0，因為我們還沒鑄造任何代幣。</p>
-<h3 id="代幣帳戶"><a href="#代幣帳戶" class="headerlink" title="代幣帳戶"></a>代幣帳戶</h3><p>開一個代幣帳戶，此帳戶「只能」存該代幣。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token create-account &lt;代幣 ID&gt;</span><br></pre></td></tr></table></figure>
-<p>執行結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token create-account 4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd</span><br><span class="line">Creating account 9Vz65o3NNNJvhPnheCr6MfFx7HUwxnZt4JhLSXEmmfqz</span><br><span class="line"></span><br><span class="line">Signature: smvyxxvZmktfex1dT5umcbqAYZecc2ZFesNUAFQhGfbbLkj2NHM5QJcCZHKrciAVa8gBecMbTFVWhL3k23qSRpM</span><br></pre></td></tr></table></figure>
-<p>所以我們的代幣帳號為 <code>9Vz65o3NNNJvhPnheCr6MfFx7HUwxnZt4JhLSXEmmfqz</code>，他是專門用來存代幣 <code>4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd</code> 的。</p>
-<h3 id="鑄造-1"><a href="#鑄造-1" class="headerlink" title="鑄造"></a>鑄造</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token mint &lt;代幣 ID&gt; &lt;欲鑄造數量&gt; &lt;接收的代幣帳戶&gt;</span><br></pre></td></tr></table></figure>
-<p>執行結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token mint 4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd 100</span><br><span class="line">Minting 100 tokens</span><br><span class="line">  Token: 4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd</span><br><span class="line">  Recipient: 9Vz65o3NNNJvhPnheCr6MfFx7HUwxnZt4JhLSXEmmfqz</span><br><span class="line"></span><br><span class="line">Signature: SY6xk2KQNrvizeaCEMvbbQKgPGUYKPZWusjdwWtoAbauqLB8Y3qdKhE6Hp46yhut7z2qcwqSi67uPf6DzA3FfRD</span><br></pre></td></tr></table></figure>
-<p>如果 <code>&lt;接收的代幣帳戶&gt;</code> 沒給定，預設會是自己的代幣帳戶；如果之前沒有創建代幣帳戶，這次的鑄造就會失敗。</p>
-<p>我們成功的轉了 100 的 <code>4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd</code> 代幣到我 <code>9Vz65o3NNNJvhPnheCr6MfFx7HUwxnZt4JhLSXEmmfqz</code> 的帳戶了。</p>
-<p>查看我們的帳戶：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token accounts</span><br></pre></td></tr></table></figure>
-<p>執行結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token accounts</span><br><span class="line">Token                                         Balance</span><br><span class="line">---------------------------------------------------------------</span><br><span class="line">2KN5U3jFNC5hf5tCELzg86zi27urr81XMo5MGkC4PiKY  0.100000001</span><br><span class="line">2XkLQPjaXDsRSyF5xV8TBArBwwmUsVmviAyMx675EFDt  1</span><br><span class="line">3M41XViQ3ARAgwEd3Nq3xZEtE7fZEQQd4X25gumMPLQQ  22</span><br><span class="line">4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd  100</span><br><span class="line">6Ta6A8XaohhU1pAaRSKkmuMAKJyVLuYAXizKSyNyaueK  2</span><br><span class="line">95dgoH52qHRapAb8DtW4uQxdcMiyhqG4cS1J4UH8744G  0.11</span><br><span class="line">CmyPi9HBo1yszknenu71vWJaJ9VT5Lnt5Q7SpBXQK4AY  1</span><br><span class="line">GZeBB6EdP4Yrdx9jHed15dCj9ToA9ff8uQiTkfuW6Xc9  1</span><br></pre></td></tr></table></figure>
-<p>可以看到第 4 行是我們剛剛新發行的代幣，有 100 枚，沒錯。其他是我所持有的其他代幣，與與其對應的持有數量。</p>
-<p>輸入以下指令可以看得更清楚我們是在「哪個」帳戶持有「什麼」代幣：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token account -v</span><br></pre></td></tr></table></figure>
-<p>執行結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token account -v</span><br><span class="line">Token                                         Account                                       Balance</span><br><span class="line">----------------------------------------------------------------------------------------------------------</span><br><span class="line">2KN5U3jFNC5hf5tCELzg86zi27urr81XMo5MGkC4PiKY  14si8Shrx9vnVMBbFq5QEgjX1iwG4d7Ffmt6zoHdcA1Q  0.100000001</span><br><span class="line">2XkLQPjaXDsRSyF5xV8TBArBwwmUsVmviAyMx675EFDt  2o6ud26e1bCPYdfMjS1ctHYXXXYPRaEMxLq3WFmC8jyv  1</span><br><span class="line">3M41XViQ3ARAgwEd3Nq3xZEtE7fZEQQd4X25gumMPLQQ  CZ7645yM6g5JFcvHPBVXN8xWKdRdBiykXNLdF1t2kbbe  22</span><br><span class="line">4o4wYDr7mQGFFawdhdaHCz5CTTeZtsdw4aVdyCApXZHd  9Vz65o3NNNJvhPnheCr6MfFx7HUwxnZt4JhLSXEmmfqz  100</span><br><span class="line">6Ta6A8XaohhU1pAaRSKkmuMAKJyVLuYAXizKSyNyaueK  ypBba7nbYHgNg6T6L37iK2C52DAMJm8vB4Q8Qx66m8y   2</span><br><span class="line">95dgoH52qHRapAb8DtW4uQxdcMiyhqG4cS1J4UH8744G  7xonGX7bnV31XL7BDX1YJSEQUBSrd5mb3FdNyLbkEaNZ  0.11</span><br><span class="line">CmyPi9HBo1yszknenu71vWJaJ9VT5Lnt5Q7SpBXQK4AY  HVo4VECQ14Ffq5922E5X5yVbwsSebSESatt6UviZLFtA  1</span><br><span class="line">GZeBB6EdP4Yrdx9jHed15dCj9ToA9ff8uQiTkfuW6Xc9  8uyD4nnnqRmV1mVuLE6hmfAiqVt7Krvc7tAmat2NN5cx  1</span><br></pre></td></tr></table></figure>
-
-<h3 id="發行-NFT"><a href="#發行-NFT" class="headerlink" title="發行 NFT"></a>發行 NFT</h3><p>在觀念說明時說過，NFT 在 Solana 跟一般的 token 其實沒有本質上的區別，只是最小單位、與總發行量都為 1。實作起來會如下：</p>
-<p><code>-- decimals 0</code> 是小數點後有 0 位的意思，所以該代幣只能持有整數，如果嘗試轉 0.1 的話不會噴錯，但帳戶數量不會增加，有興趣可以試試。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token create-token --decimals 0</span><br></pre></td></tr></table></figure>
-<p>執行結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token create-token --decimals 0</span><br><span class="line">Creating token 9J7Bmg8Yx4dPsSiiQAvdHuwLS5dCf9ET6jyamwpaJUKR</span><br><span class="line"></span><br><span class="line">Signature: 5aHJuH1eBvzHQZ2NCHPVPcCioKyfJdiPkhtTVtbfCvUcqeUrZ1vohf1i59pcmZWz8jo9pcqJ9ZkBvAxXstJStwGY</span><br></pre></td></tr></table></figure>
-<p>接著一樣是要創建對應的帳戶然後鑄造：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token create-account 9J7Bmg8Yx4dPsSiiQAvdHuwLS5dCf9ET6jyamwpaJUKR</span><br><span class="line"></span><br><span class="line">$ spl-token mint 9J7Bmg8Yx4dPsSiiQAvdHuwLS5dCf9ET6jyamwpaJUKR 1</span><br></pre></td></tr></table></figure>
-<p>注意，這裏其實你也可以 mint 1 個以上，也可以成功，但這樣這個 token 總量就會有 1 個以上，就不是所謂的 NFT 了。</p>
-<p>成功 mint 1 個代幣後，我們馬上關閉該代幣的鑄造功能。</p>
-<p>這個關閉事不能再打開的，如此就達成意義上的 NFT 了，每個 token 都是獨一無二。</p>
-<p>命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token authorize &lt;代幣 ID&gt; mint --disable</span><br></pre></td></tr></table></figure>
-<p>執行結果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ spl-token authorize 9J7Bmg8Yx4dPsSiiQAvdHuwLS5dCf9ET6jyamwpaJUKR mint --disable</span><br><span class="line">Updating 9J7Bmg8Yx4dPsSiiQAvdHuwLS5dCf9ET6jyamwpaJUKR</span><br><span class="line">  Current mint authority: 46hytJBhguswo6S8fCcVtR85HEnb9nd1hwMxFWYnSHXc</span><br><span class="line">  New mint authority: disabled</span><br><span class="line"></span><br><span class="line">Signature: 295NVTrVZYSygVXZbNwG91HE99GaosN2QA6U4fNZ5v976nFQXWRk1suLNqM81smniTuH92QgG6YBLfHQ8eM6bEwW</span><br></pre></td></tr></table></figure>
-
-<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><ul>
-<li>如果想要持有 1 種代幣，必須擁有 1 個對應代幣的帳戶</li>
-<li>NFT 是一種最小單位與發行量為 1 的代幣</li>
-</ul>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://spl.solana.com/token">https://spl.solana.com/token</a></li>
-<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://pencilflip.medium.com/solanas-token-program-explained-de0ddce29714">https://pencilflip.medium.com/solanas-token-program-explained-de0ddce29714</a></li>
-</ul>
-
       
     </div>
 

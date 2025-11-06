@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -163,6 +163,440 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/03/28/react-how-to-append-jsx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/28/react-how-to-append-jsx/" class="post-title-link" itemprop="url">React: How To Append JSX</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-28 21:27:22" itemprop="dateCreated datePublished" datetime="2022-03-28T21:27:22+08:00">2022-03-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Use array!</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> collect = []</span><br><span class="line">items.<span class="title function_">map</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    collect.<span class="title function_">push</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;item&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>React example</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ReactDOM</span> <span class="keyword">from</span> <span class="string">&quot;react-dom&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> items = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">    <span class="keyword">const</span> collect = [<span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span>first row<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>];</span><br><span class="line">    items.<span class="title function_">map</span>(<span class="function"><span class="params">item</span> =&gt;</span> collect.<span class="title function_">push</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;item&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;collect&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>, <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;container&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>Will print out this：</p>
+<ul>
+<li>first row</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/03/22/css-flex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/22/css-flex/" class="post-title-link" itemprop="url">CSS Flex</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-22 12:01:38" itemprop="dateCreated datePublished" datetime="2022-03-22T12:01:38+08:00">2022-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h2><p>Think in container and items.</p>
+<!-- ```htmlmixed html
+<div class='flex-container'>
+  <div class='flex-item'>1</div>
+  <div class='flex-item'>2</div>
+  <div class='flex-item'>3</div>
+</div>
+```
+
+```css css
+.flex-container {
+  display: flex;
+}
+
+.flex-item {
+  /* whatever we like */
+}
+``` -->
+
+<p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="qBpajMX" data-user="n795113" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener external nofollow noreferrer" href="https://codepen.io/n795113/pen/qBpajMX">
+  Flex Container</a> by Leon (<a target="_blank" rel="noopener external nofollow noreferrer" href="https://codepen.io/n795113">@n795113</a>)
+  on <a target="_blank" rel="noopener external nofollow noreferrer" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="gOowxMJ" data-user="n795113" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener external nofollow noreferrer" href="https://codepen.io/n795113/pen/gOowxMJ">
+  Untitled</a> by Leon (<a target="_blank" rel="noopener external nofollow noreferrer" href="https://codepen.io/n795113">@n795113</a>)
+  on <a target="_blank" rel="noopener external nofollow noreferrer" href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://css-tricks.com/almanac/properties/j/justify-content/">https://css-tricks.com/almanac/properties/j/justify-content/</a></li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://w3c.hexschool.com/flexbox/4a029043">https://w3c.hexschool.com/flexbox/4a029043</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/03/18/meta-knowledge/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/18/meta-knowledge/" class="post-title-link" itemprop="url">知識</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-18 14:36:27" itemprop="dateCreated datePublished" datetime="2022-03-18T14:36:27+08:00">2022-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%B8%E7%BF%92/" itemprop="url" rel="index"><span itemprop="name">學習</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>將分為兩部分討論：</p>
+<ol>
+<li>真</li>
+<li>解釋性</li>
+</ol>
+<hr>
+<h2 id="什麼是真知識"><a href="#什麼是真知識" class="headerlink" title="什麼是真知識"></a>什麼是真知識</h2><h3 id="認知的局限性"><a href="#認知的局限性" class="headerlink" title="認知的局限性"></a>認知的局限性</h3><p>我們無法否認我們的思想、身體限制了我們對於世界的認知。身體上，我們的眼睛能看到的光的波段是有限的；思想上，我們的語言所能描述的範圍，就是我們能理解的範圍。</p>
+<p>所以我們可以初步把知識分為：可理解的、不可理解的。</p>
+<h3 id="能驗證的就是真？"><a href="#能驗證的就是真？" class="headerlink" title="能驗證的就是真？"></a>能驗證的就是真？</h3><p>既然認知範圍外的我們碰不到、也確認不了，那我們就不管啦！關注我們能認知的就好(？)<br>只要在我們能理解的範圍內，驗證為真的知識就是真知識！</p>
+<p>問題是，我們如何驗證呢？</p>
+<p>例如，我們如何驗證天氣播報說：「今天是晴天」呢？</p>
+<p>「很簡單啊，打開窗戶往外看不就知道了？」</p>
+<p>「問題是我們怎麼驗證自己的感官器官運作正常呢？」</p>
+<p>「那我們相信氣象數據總不會錯吧？」</p>
+<p>「一樣的問題，我們怎麼驗證做氣象儀器的人、和解讀數據的人說的是真的呢？」</p>
+<h3 id="相信他人相信他人的相信"><a href="#相信他人相信他人的相信" class="headerlink" title="相信他人相信他人的相信"></a>相信他人相信他人的相信</h3><p>最後我們會發現，要理性的去驗證每件事成本太高，不可能做到去親證每件事。<br>所以我們選擇採信他人的說法，既然大家都說那是對的，那他是對的機率應該夠高足以讓我們相信。</p>
+<p>但他人何嘗不是如此？</p>
+<h2 id="解釋性"><a href="#解釋性" class="headerlink" title="解釋性"></a>解釋性</h2><p>「解釋性」高的知識是指更好解釋當前現象的知識。</p>
+<h3 id="豐收之神"><a href="#豐收之神" class="headerlink" title="豐收之神"></a>豐收之神</h3><p>讓稻作生長的是陽光、水？還是豐收之神？</p>
+<p>平心而論，其實兩者都說得通，都具備解釋性。</p>
+<p>我們今天之所以會傾向前者，只是因為前者更符合我們知道的其他物理「知識」。想像一下，如果我們是中世紀的普通人，擁有的是中世紀普通人的「知識體系」，那後者的解釋性可能的就強，因為他跟我們的其他知識擺在一起不矛盾！</p>
+<p>我們可以發現，我們相信的其實是那與我們「知識體係」不矛盾、前後邏輯一致的知識，而整件事又受我們「經驗」限制。</p>
+<hr>
+<h2 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h2><ul>
+<li>理解之外無法觸及，理解之內的無法逐一驗證，所以我們不得不人云亦云</li>
+<li>現在普遍被認為是真的，也可能只是暫時的真，所以我們必須時時謹慎。</li>
+</ul>
+<p>但只有我們如此意識到認知上的諸多限制，才能有機會更靠近那個真實。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.youtube.com/watch?v=BciWSosc-Uo&t=1s">呵，人類妳對【知識】一無所知 | 當代哲學知識論亂談</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/03/18/hexo-accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/18/hexo-accessing-non-existent-property-xxx-of-module-exports-inside-circular-dependency/" class="post-title-link" itemprop="url">Hexo: Accessing non-existent property 'xxx' of module exports inside circular dependency</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-18 10:08:04" itemprop="dateCreated datePublished" datetime="2022-03-18T10:08:04+08:00">2022-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h2><p>I got this error when I run <code>hexo server</code>. The site still works but it made feel unsatisfied…</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(node:87224) Warning: Accessing non-existent property &#x27;lineno&#x27; of module exports inside circular dependency</span><br><span class="line">(Use `node --trace-warnings ...` to show where the warning was created)</span><br><span class="line">(node:87224) Warning: Accessing non-existent property &#x27;column&#x27; of module exports inside circular dependency</span><br><span class="line">(node:87224) Warning: Accessing non-existent property &#x27;filename&#x27; of module exports inside circular dependency</span><br><span class="line">(node:87224) Warning: Accessing non-existent property &#x27;lineno&#x27; of module exports inside circular dependency</span><br><span class="line">(node:87224) Warning: Accessing non-existent property &#x27;column&#x27; of module exports inside circular dependency</span><br><span class="line">(node:87224) Warning: Accessing non-existent property &#x27;filename&#x27; of module exports inside circular dependency</span><br></pre></td></tr></table></figure>
+
+<h3 id="My-dependencies"><a href="#My-dependencies" class="headerlink" title="My dependencies:"></a>My dependencies:</h3><ul>
+<li>node: v16.8.0</li>
+<li>hexo: 6.1.0</li>
+<li>hexo-cli: 4.3.0</li>
+</ul>
+<hr>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Append below code to <code>package.json</code> then run <code>yarn install</code> or <code>npm install</code>. The error should be fixed.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;resolutions&quot;: &#123;</span><br><span class="line">  &quot;stylus&quot;: &quot;^0.54.8&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.haoyizebo.com/posts/710984d0/">https://www.haoyizebo.com/posts/710984d0/</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -380,7 +814,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/03/16/laravel-sync-data-from-an-existing-database/">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/03/17/laravel-sync-data-from-an-existing-database/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -398,7 +832,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/16/laravel-sync-data-from-an-existing-database/" class="post-title-link" itemprop="url">Laravel | Sync Data From an Existing Database</a>
+          <a href="/2022/03/17/laravel-sync-data-from-an-existing-database/" class="post-title-link" itemprop="url">Laravel | Sync Data From an Existing Database</a>
         </h2>
 
         <div class="post-meta-container">
@@ -503,7 +937,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/03/16/laravel-migration-from-an-existing-database/">
+    <link itemprop="mainEntityOfPage" href="http://liang256.github.io/2022/03/17/laravel-migration-from-an-existing-database/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -521,7 +955,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/16/laravel-migration-from-an-existing-database/" class="post-title-link" itemprop="url">Laravel | Migration From an Existing Database</a>
+          <a href="/2022/03/17/laravel-migration-from-an-existing-database/" class="post-title-link" itemprop="url">Laravel | Migration From an Existing Database</a>
         </h2>
 
         <div class="post-meta-container">
