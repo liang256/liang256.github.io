@@ -1,5 +1,5 @@
 ---
-title: words-from-my-ai
+title: words-from-megumi
 date: 2026-02-26 13:27:49
 categories:
 tags:
