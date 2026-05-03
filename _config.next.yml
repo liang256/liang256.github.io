@@ -1,0 +1,8 @@
+comments:
+  active: utterances
+
+utterances:
+  enable: true
+  repo: liang256/liang256.github.io   # the repo where comments (Issues) will be stored
+  issue_term: pathname
+  theme: github-light
