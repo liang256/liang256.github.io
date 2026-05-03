@@ -114,7 +114,7 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/liang256/liang256.github.io
+  repo: git@github-liang256:liang256/liang256.github.io.git
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
 
