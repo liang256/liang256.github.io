@@ -1,7 +1,7 @@
 ---
 title: "孤獨側寫 02：人聲"
 date: 2025-10-11 20:31:33
-categories:
+categories: solitude-profile
 tags:
     - solitude-profile
 ---

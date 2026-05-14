@@ -1,7 +1,7 @@
 ---
 title: "孤獨側寫 01：旅伴"
 date: 2025-10-11 20:18:04
-categories:
+categories: solitude-profile
 tags:
     - solitude-profile
 ---
