@@ -1,7 +1,7 @@
 ---
 title: "孤獨側寫 03: love ping pong"
 date: 2026-05-14 00:50:06
-categories: solitude-profile
+categories: 孤獨側寫
 tags:
     - solitude profile
 ---

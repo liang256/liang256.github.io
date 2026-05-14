@@ -1,7 +1,7 @@
 ---
 title: "孤獨側寫 04: silent victory"
 date: 2026-05-14 01:04:15
-categories: solitude profile
+categories: 孤獨側寫
 tags:
   - solitude profile
 ---
