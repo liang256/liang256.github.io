@@ -172,7 +172,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/06/22/maya-api-basics/">
+    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/06/22/maya-api-debug-on-mac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +190,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/22/maya-api-basics/" class="post-title-link" itemprop="url">Maya API Basics</a>
+          <a href="/2022/06/22/maya-api-debug-on-mac/" class="post-title-link" itemprop="url">Maya API For C++: How To Debug On Mac</a>
         </h2>
 
         <div class="post-meta-container">
@@ -201,14 +201,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-06-23 02:55:31" itemprop="dateCreated datePublished" datetime="2022-06-23T02:55:31+08:00">2022-06-23</time>
+      <time title="Created: 2022-06-23 12:00:00" itemprop="dateCreated datePublished" datetime="2022-06-23T12:00:00+08:00">2022-06-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+      <time title="Modified: 2026-05-14 15:52:41" itemprop="dateModified" datetime="2026-05-14T15:52:41+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -230,30 +230,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h3><ul>
-<li>MObjects<ul>
-<li>class to handle all kinds of data in Maya</li>
-<li>a handle object pointing to actual data</li>
-<li>typeless</li>
-</ul>
-</li>
-<li>Function Sets<ul>
-<li>work with mobject</li>
-</ul>
-</li>
-<li>Wrappers<ul>
-<li>allocated and deallocated by you</li>
-</ul>
-</li>
-<li>Proxies<ul>
-<li>used to create custom maya objects (i.e. <code>MPxNode</code>, <code>MPxDeformerNode</code>)</li>
-</ul>
-</li>
-</ul>
-<h3 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h3><ul>
-<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.chadvernon.com/maya-api-programming/#introduction">Maya API Programming by Chad Vernon</a></li>
-</ul>
-
+          <p>There is no <strong>output window</strong> in Mac’s Maya so I can’t print out text by <code>std::out</code>. The only way I know is to use <code>Global::displayInfo</code>. However, <code>Global::displayInfo</code> only accepts <code>MString</code>. I haven’t digged into what <code>MString</code> is yet but just provide some examples here. Hope you can get the basic idea:)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Global::<span class="built_in">displayInfo</span>(<span class="string">&quot;hello&quot;</span>); <span class="comment">// Works</span></span><br><span class="line"></span><br><span class="line">string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">Global::<span class="built_in">displayInfo</span>(str); <span class="comment">// This will fail</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> str[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">sprintf</span>(str, <span class="string">&quot;hello&quot;</span>); <span class="comment">// Writes content to `str`</span></span><br><span class="line">Global::<span class="built_in">displayInfo</span>(str); <span class="comment">// Works</span></span><br></pre></td></tr></table></figure>
+<p>In this way, we can also print out <strong>numeric types</strong>!</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">flaot value = <span class="number">100.0f</span>;</span><br><span class="line"><span class="type">char</span> str[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">sprintf</span>(str, <span class="string">&quot;value:%f&quot;</span>, value);</span><br><span class="line">Global::<span class="built_in">displayInfo</span>(str);</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -897,14 +877,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-04-30 00:05:19" itemprop="dateCreated datePublished" datetime="2022-04-30T00:05:19+08:00">2022-04-30</time>
+      <time title="Created: 2022-04-30 12:00:00" itemprop="dateCreated datePublished" datetime="2022-04-30T12:00:00+08:00">2022-04-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
+      <time title="Modified: 2026-05-14 15:52:41" itemprop="dateModified" datetime="2026-05-14T15:52:41+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -940,6 +920,98 @@
 </ul>
 <p>Which means we are trying to find the best from <code>1</code> ~ <code>piles.max()</code>. Searching a value from a sorted array… maybe binary search is a soslution.</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="Try-1"><a href="#Try-1" class="headerlink" title="Try #1"></a>Try #1</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::cmp::Ordering;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">min_eating_speed</span>(piles: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, h: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">sorted_piles</span> = piles.<span class="title function_ invoke__">clone</span>();</span><br><span class="line">        sorted_piles.<span class="title function_ invoke__">sort</span>();</span><br><span class="line">        Solution::<span class="title function_ invoke__">min_eating_speed_inner</span>(</span><br><span class="line">            &amp;sorted_piles,</span><br><span class="line">            h,</span><br><span class="line">            <span class="number">1</span>,</span><br><span class="line">            *sorted_piles.<span class="title function_ invoke__">last</span>().<span class="title function_ invoke__">unwrap</span>()</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">min_eating_speed_inner</span>(piles: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, h: <span class="type">i32</span>, min: <span class="type">i32</span>, max: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="comment">// return codition</span></span><br><span class="line">        <span class="keyword">if</span> piles.<span class="title function_ invoke__">len</span>() == <span class="number">0</span> || min &gt; max &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// speeds arr is [min..max]</span></span><br><span class="line">        <span class="comment">// so the mid speed is (min + max) / 2</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">mid</span> = min + (max - min) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// piles divides speed return spend time</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">time</span> = Solution::<span class="title function_ invoke__">count_eating_time</span>(&amp;piles, mid);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// find the matched speed or continue go down to sub tree</span></span><br><span class="line">        <span class="keyword">match</span> time.<span class="title function_ invoke__">cmp</span>(&amp;h) &#123;</span><br><span class="line">            <span class="comment">// spend too much time to eat, speed up</span></span><br><span class="line">            Ordering::Greater =&gt; Solution::<span class="title function_ invoke__">min_eating_speed_inner</span>(piles, h, mid + <span class="number">1</span>, max),</span><br><span class="line">            <span class="comment">// match, try to find a better (slower) speed</span></span><br><span class="line">            _ =&gt; &#123;</span><br><span class="line">                <span class="keyword">let</span> <span class="variable">new_speed</span> = Solution::<span class="title function_ invoke__">min_eating_speed_inner</span>(piles, h, min, mid - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> new_speed &gt; <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> new_speed;</span><br><span class="line">                &#125;</span><br><span class="line">                mid</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">count_eating_time</span>(piles: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, speed: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="comment">// count the time to eat each pile and return sum</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">sum</span> = piles</span><br><span class="line">            .<span class="title function_ invoke__">into_iter</span>()</span><br><span class="line">            .<span class="title function_ invoke__">map</span>(|pile| &#123;</span><br><span class="line">                <span class="keyword">if</span> pile % speed &gt; <span class="number">0</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> pile / speed + <span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> pile / speed</span><br><span class="line">            &#125;)</span><br><span class="line">            .<span class="title function_ invoke__">sum</span>();</span><br><span class="line"></span><br><span class="line">        sum</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/04/27/rust-checked-sub-n-unwrap-or/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/27/rust-checked-sub-n-unwrap-or/" class="post-title-link" itemprop="url">Rust: checked_sub & unwrap_or</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-28 12:00:00" itemprop="dateCreated datePublished" datetime="2022-04-28T12:00:00+08:00">2022-04-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-05-14 15:52:41" itemprop="dateModified" datetime="2026-05-14T15:52:41+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Rust/" itemprop="url" rel="index"><span itemprop="name">Rust</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Just a quick note for these two functions I learned today.</p>
+<p><code>checked_sub</code> is used to check if the abstraction of an integer overflows. For example:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">num_u32</span>: <span class="type">u32</span> = <span class="number">0</span>;</span><br><span class="line">num_u32 -= <span class="number">1</span>; <span class="comment">// overflow</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">num_i32</span> = <span class="type">i32</span>::MIN; <span class="comment">// -2147483648</span></span><br><span class="line">num_i32 -= <span class="number">1</span>; <span class="comment">// overflow</span></span><br></pre></td></tr></table></figure>
+
+<p>To prevent it, we can use the combo of <code>checked_sub</code> and <code>unwrap_or</code>. <code>checked_sub</code> will return <code>Option&lt;self&gt;</code> which means if there is no overflow occurs, we get <code>Some(substraction_result)</code>, else we will get <code>None</code>. <code>unwarp_or</code> can then give the result a default value if we get <code>None</code> or just unwrap <code>Some(substraction_result)</code> to return <code>substraction_result</code>. Let’s look at the code.</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">num_i32</span> = <span class="type">i32</span>::MIN + <span class="number">1</span>; <span class="comment">// -2147483648 + 1</span></span><br><span class="line"></span><br><span class="line">num_i32 = num_i32.<span class="title function_ invoke__">checked_sub</span>(<span class="number">1</span>).<span class="title function_ invoke__">unwrap_or</span>(<span class="type">i32</span>::MIN); <span class="comment">// -2147483648</span></span><br><span class="line"></span><br><span class="line">num_i32 = num_i32.<span class="title function_ invoke__">checked_sub</span>(<span class="number">1</span>).<span class="title function_ invoke__">unwrap_or</span>(<span class="number">100</span>); <span class="comment">// 100</span></span><br><span class="line"><span class="comment">// Since it overflows, it will return the default value </span></span><br><span class="line"><span class="comment">// that we give to unwrap_or which is 100 for this example</span></span><br></pre></td></tr></table></figure>
+
+<p>That’s it for today!</p>
 
       
     </div>
@@ -1053,98 +1125,6 @@
 <li>Combo of <code>cmp</code> &amp; <code>match</code></li>
 <li>How to use the function itself in a implementation<br>  -&gt; <code>Solution::bst_search_index_inner</code></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/04/27/rust-checked-sub-n-unwrap-or/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/27/rust-checked-sub-n-unwrap-or/" class="post-title-link" itemprop="url">Rust: checked_sub & unwrap_or</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-28 00:34:33" itemprop="dateCreated datePublished" datetime="2022-04-28T00:34:33+08:00">2022-04-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 14:36:26" itemprop="dateModified" datetime="2024-02-20T14:36:26+08:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Rust/" itemprop="url" rel="index"><span itemprop="name">Rust</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Just a quick note for these two functions I learned today.</p>
-<p><code>checked_sub</code> is used to check if the abstraction of an integer overflows. For example:</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">num_u32</span>: <span class="type">u32</span> = <span class="number">0</span>;</span><br><span class="line">num_u32 -= <span class="number">1</span>; <span class="comment">// overflow</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">num_i32</span> = <span class="type">i32</span>::MIN; <span class="comment">// -2147483648</span></span><br><span class="line">num_i32 -= <span class="number">1</span>; <span class="comment">// overflow</span></span><br></pre></td></tr></table></figure>
-
-<p>To prevent it, we can use the combo of <code>checked_sub</code> and <code>unwrap_or</code>. <code>checked_sub</code> will return <code>Option&lt;self&gt;</code> which means if there is no overflow occurs, we get <code>Some(substraction_result)</code>, else we will get <code>None</code>. <code>unwarp_or</code> can then give the result a default value if we get <code>None</code> or just unwrap <code>Some(substraction_result)</code> to return <code>substraction_result</code>. Let’s look at the code.</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">num_i32</span> = <span class="type">i32</span>::MIN + <span class="number">1</span>; <span class="comment">// -2147483648 + 1</span></span><br><span class="line"></span><br><span class="line">num_i32 = num_i32.<span class="title function_ invoke__">checked_sub</span>(<span class="number">1</span>).<span class="title function_ invoke__">unwrap_or</span>(<span class="type">i32</span>::MIN); <span class="comment">// -2147483648</span></span><br><span class="line"></span><br><span class="line">num_i32 = num_i32.<span class="title function_ invoke__">checked_sub</span>(<span class="number">1</span>).<span class="title function_ invoke__">unwrap_or</span>(<span class="number">100</span>); <span class="comment">// 100</span></span><br><span class="line"><span class="comment">// Since it overflows, it will return the default value </span></span><br><span class="line"><span class="comment">// that we give to unwrap_or which is 100 for this example</span></span><br></pre></td></tr></table></figure>
-
-<p>That’s it for today!</p>
 
       
     </div>
