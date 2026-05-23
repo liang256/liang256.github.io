@@ -9,6 +9,7 @@ utterances:
 
 custom_file_path:
   head: source/_data/head.njk
+  style: source/_data/styles.styl
 
 open_graph:
   enable: true
@@ -16,3 +17,37 @@ open_graph:
     twitter_card: summary
 
 index_with_subtitle: true
+
+menu:
+  archive: /archives/ || fa fa-box-archive
+  tags: /tags/ || fa fa-hashtag
+  about: /about/ || fa fa-user
+
+menu_settings:
+  icons: false
+  badges: false
+
+sidebar:
+  display: remove
+
+site_state: false
+
+read_more_btn: true
+
+post_meta:
+  item_text: false
+  created_at: true
+  updated_at:
+    enable: false
+  categories: true
+
+text_align:
+  desktop: start
+  mobile: start
+
+theme_color:
+  light: "#f4f1ea"
+  dark: "#1f1d1a"
+
+footer:
+  powered: false
