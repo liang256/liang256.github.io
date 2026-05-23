@@ -1,6 +1,15 @@
 ---
 title: Backend Developer Portfolio
 date: 2022-05-30 11:39:52
+description: "An archival list of older backend and web development projects by Leon Chen."
+robots: "noindex, follow"
+keywords:
+  - archive
+  - backend developer
+  - Laravel
+  - React
+  - Solana
+  - web development
 ---
 
 ### [React Flower Exercise](https://github.com/liang256/react-flower-exercise)

@@ -6,3 +6,13 @@ utterances:
   repo: liang256/liang256.github.io   # the repo where comments (Issues) will be stored
   issue_term: pathname
   theme: github-light
+
+custom_file_path:
+  head: source/_data/head.njk
+
+open_graph:
+  enable: true
+  options:
+    twitter_card: summary
+
+index_with_subtitle: true

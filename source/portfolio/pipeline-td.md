@@ -1,6 +1,15 @@
 ---
 title: Pipeline TD Portfolio
 date: 2024-02-20 22:09:45
+description: "An archival list of older pipeline, tools, rigging, and animation technology projects by Leon Chen."
+robots: "noindex, follow"
+keywords:
+  - archive
+  - pipeline TD
+  - Maya tools
+  - rigging tools
+  - animation pipeline
+  - technical director
 ---
 ### [Terminal Tetris](https://github.com/liang256/tetris)
 ![](https://github.com/liang256/tetris/raw/main/videos/v_1_0_0.gif)

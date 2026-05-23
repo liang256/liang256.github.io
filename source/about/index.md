@@ -1,6 +1,14 @@
 ---
 title: 👋 I'm Leon
 date: 2022-03-17 09:01:24
+description: "About Leon Chen and this personal archive of experiments, poems, art, notes, and stray thoughts."
+keywords:
+  - Leon Chen
+  - personal archive
+  - experiments
+  - poems
+  - art
+  - thoughts
 ---
 
 - 🌱 An Experienced Software Engineer with artistic background
@@ -17,6 +25,4 @@ date: 2022-03-17 09:01:24
 
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=n795113&show_icons=true&locale=en" alt="n795113" /></p> 
-
-
 

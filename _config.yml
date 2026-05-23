@@ -4,16 +4,21 @@
 
 # Site
 title: /tmp/bucket
-subtitle: 'A place to dump my thoughts'
-description: 'Random thoughts, experiments, and notes.'
+subtitle: 'experiments, poems, art, and stray thoughts'
+description: 'A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.'
 keywords:
-  - software development
-  - python
-  - react
+  - Leon Chen
+  - Liang Chen
+  - personal blog
+  - experimental writing
+  - poems
+  - art
+  - thoughts
   - notes
+  - software experiments
 author: Liang Chen
 language: en
-timezone: ''
+timezone: Asia/Taipei
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -122,3 +127,6 @@ nofollow:
   enable: true
   field: site
   #exclude:
+
+sitemap:
+  path: sitemap.xml
