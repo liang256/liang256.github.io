@@ -1,8 +1,12 @@
 ---
-title: weelky-0004
+title: "Weekly Notes 0004: Maya Plugins, Rest, and Japanese Study"
 categories: Log
+description: "Weekly notes on building a Maya plugin, pacing work, meetings, and studying Japanese."
+robots: "noindex, follow"
+sitemap: false
 tags:
   - weekly
+  - notes
 date: 2025-05-16 15:54:39
 ---
 ## #1

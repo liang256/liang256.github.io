@@ -1,8 +1,12 @@
 ---
-title: weekly-0012
+title: "Weekly Notes 0012: Chaos, Motion, and Letting Go"
 categories: Log
+description: "Fragmented weekly notes on work chaos, motion tools, moving decisions, and choosing what to let go."
+robots: "noindex, follow"
+sitemap: false
 tags:
   - weekly
+  - notes
 date: 2025-10-10 20:04:55
 ---
 ## #1

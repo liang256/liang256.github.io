@@ -1,8 +1,12 @@
 ---
 title: "質量守恆"
 date: 2025-10-13 16:44:30
-categories:
+categories: Thoughts
+description: "一則關於和舊電腦道別、重量、回收，以及失去感的短篇札記。"
 tags:
+  - prose
+  - thoughts
+  - memory
 ---
 今日與 2014 的電腦道別。
 沒有換到半毛錢。

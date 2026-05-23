@@ -3,6 +3,7 @@ title: Rigger Portfolio
 date: 2022-06-06 22:09:45
 description: "An archival list of older character rigging, technical art, Maya tool, and animation utility work by Leon Chen."
 robots: "noindex, follow"
+sitemap: false
 keywords:
   - archive
   - character rigger

@@ -1,8 +1,13 @@
 ---
-title: weekly-0010
+title: "Weekly Notes 0010: Pipeline Work and Claude Code"
 categories: Log
+description: "Weekly notes on pipeline work, rendering and compositing, voice tools, game progress, and trying Claude Code."
+robots: "noindex, follow"
+sitemap: false
 tags:
   - weekly
+  - notes
+  - tools
 date: 2025-08-29 11:59:21
 ---
 ## #1

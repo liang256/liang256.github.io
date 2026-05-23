@@ -1,8 +1,12 @@
 ---
-title: weekly-0007
+title: "Weekly Notes 0007: Vacation July"
 categories: Log
+description: "A short weekly note on vacation, games, Japanese study, and finishing orthodontic treatment."
+robots: "noindex, follow"
+sitemap: false
 tags:
   - weekly
+  - notes
 date: 2025-07-02 12:59:35
 ---
 ```

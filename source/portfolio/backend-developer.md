@@ -3,6 +3,7 @@ title: Backend Developer Portfolio
 date: 2022-05-30 11:39:52
 description: "An archival list of older backend and web development projects by Leon Chen."
 robots: "noindex, follow"
+sitemap: false
 keywords:
   - archive
   - backend developer

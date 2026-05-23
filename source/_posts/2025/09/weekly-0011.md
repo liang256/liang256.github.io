@@ -1,8 +1,13 @@
 ---
-title: weekly-0011
+title: "Weekly Notes 0011: Calgary, Animation Tools, and Moving"
 categories: Log
+description: "Weekly notes on Calgary, animation tool fragments, refactoring, moving logistics, and game scripts."
+robots: "noindex, follow"
+sitemap: false
 tags:
   - weekly
+  - notes
+  - animation
 date: 2025-09-19 20:39:54
 ---
 ## #1

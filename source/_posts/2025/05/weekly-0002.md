@@ -1,9 +1,13 @@
 ---
-title: weekly-0002
+title: "Weekly Notes 0002: Restarting, Games, and Perfectionism"
 date: 2025-05-05 12:57:10
 categories: Log
+description: "Weekly notes on restarting a game character, perfectionism, memory, and small personal observations."
+robots: "noindex, follow"
+sitemap: false
 tags:
     - weekly
+    - notes
 ---
 ```
 what did i do last week? i barely remember...

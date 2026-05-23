@@ -2,8 +2,11 @@
 title: "孤獨側寫 02：人聲"
 date: 2025-10-11 20:31:33
 categories: 孤獨側寫
+description: "一則孤獨側寫：關於 podcast、直播、中文人聲，以及日常中需要聲音陪伴的狀態。"
 tags:
     - solitude-profile
+    - solitude
+    - prose
 ---
 我是 podcast、直播等內容的重度使用者。
 必須是中文的。

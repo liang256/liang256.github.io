@@ -1,8 +1,13 @@
 ---
-title: insights from posts
+title: "Insights from Posts"
 date: 2026-05-03 00:00:00
-categories:
+categories: Thoughts
+description: "A self-reading of recurring themes across the archive: precision, animation, solitude, absurdity, and personal systems."
 tags:
+  - thoughts
+  - meta
+  - archive
+  - self-reflection
 ---
 
 ## Who This Person Is

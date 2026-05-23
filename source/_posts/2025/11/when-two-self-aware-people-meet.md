@@ -1,8 +1,13 @@
 ---
 title: When Two Self-Aware People Meet
 date: 2025-11-06 10:46:12
-categories:
+categories: Poem
+description: "A prose poem about two self-aware people meeting through silence, precision, mutual recognition, and restraint."
 tags:
+  - poem
+  - prose
+  - relationship
+  - self-awareness
 ---
 It’s not a spark.
 It’s static.

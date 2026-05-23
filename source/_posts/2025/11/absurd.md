@@ -1,8 +1,12 @@
 ---
 title: 荒謬
 date: 2025-11-06 11:49:17
-categories:
+categories: Thoughts
+description: "一則關於荒謬感的定義：現實規則與行為呈現不對齊時，孤獨與滑稽如何同時出現。"
 tags:
+  - absurdity
+  - thoughts
+  - solitude
 ---
 ## a
 「荒謬」不是單純的搞笑，也不是怪。

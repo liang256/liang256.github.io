@@ -3,6 +3,7 @@ title: Pipeline TD Portfolio
 date: 2024-02-20 22:09:45
 description: "An archival list of older pipeline, tools, rigging, and animation technology projects by Leon Chen."
 robots: "noindex, follow"
+sitemap: false
 keywords:
   - archive
   - pipeline TD

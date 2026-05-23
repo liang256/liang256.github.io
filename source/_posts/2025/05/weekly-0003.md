@@ -1,8 +1,12 @@
 ---
-title: weekly-0003
+title: "Weekly Notes 0003: Work, Japanese Study, and Travel Planning"
 categories: Log
+description: "Weekly notes on work communication, Japanese study, travel planning, and game progress."
+robots: "noindex, follow"
+sitemap: false
 tags:
   - weekly
+  - notes
 date: 2025-05-09 14:06:26
 ---
 ## #1

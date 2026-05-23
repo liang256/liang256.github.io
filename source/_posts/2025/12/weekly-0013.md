@@ -1,8 +1,11 @@
 ---
-title: weekly-0013
+title: "Weekly Notes 0013: Books, Conflict, and Animation First Principles"
 categories: Log
+description: "Weekly notes on reading, relationship conflict, self-honesty, animation first principles, and tool thinking."
 tags:
   - weekly
+  - notes
+  - animation
 date: 2025-12-06 15:35:16
 ---
 ## #1

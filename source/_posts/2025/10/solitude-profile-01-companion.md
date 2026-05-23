@@ -2,8 +2,11 @@
 title: "孤獨側寫 01：旅伴"
 date: 2025-10-11 20:18:04
 categories: 孤獨側寫
+description: "一則孤獨側寫：在開放世界遊戲裡尋求旅伴，與不想獨自探索的心情。"
 tags:
     - solitude-profile
+    - solitude
+    - prose
 ---
 尋求旅伴。
 在開放世界遊戲裡尋求旅伴。

@@ -1,8 +1,12 @@
 ---
-title: weekly-0005
+title: "Weekly Notes 0005: UI, Rain, and Small Systems"
 categories: Log
+description: "Weekly notes on UI work, rainy days, astrology, and small questions from games and life."
+robots: "noindex, follow"
+sitemap: false
 tags:
   - weekly
+  - notes
 date: 2025-05-25 12:35:43
 ---
 ```

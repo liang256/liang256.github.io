@@ -1,7 +1,11 @@
 ---
-title: catch-up-log
+title: "Catch-up Log: Travel, Family, and Small Observations"
 categories: Log
+description: "A loose catch-up log of travel notes, family conversations, language practice, and small observations from 2025."
+robots: "noindex, follow"
+sitemap: false
 tags:
+  - notes
 date: 2025-05-24 20:00:48
 ---
 ## 2025-05-22

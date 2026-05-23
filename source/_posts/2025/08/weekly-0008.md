@@ -1,8 +1,12 @@
 ---
-title: weekly-0008
+title: "Weekly Notes 0008: Transition, Work, and Uncertainty"
 categories: Log
+description: "Weekly notes on games, marriage planning, housing, AI uncertainty, and the feeling of transition."
+robots: "noindex, follow"
+sitemap: false
 tags:
   - weekly
+  - notes
 date: 2025-08-08 12:53:44
 ---
 ```

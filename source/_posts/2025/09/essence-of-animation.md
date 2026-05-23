@@ -1,8 +1,12 @@
 ---
-title: essence-of-animation
+title: "The Essence of Animation"
 date: 2025-09-18 20:50:53
-categories:
+categories: Animation
+description: "A compact reflection on animation fundamentals: timing, spacing, camera-facing shapes, and the limits of tools."
 tags:
+  - animation
+  - thoughts
+  - tools
 ---
 ## The Core Idea
 The essence of animation is simple: when and what — at which frame, what shape happens.

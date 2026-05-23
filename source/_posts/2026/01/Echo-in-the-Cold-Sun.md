@@ -1,8 +1,12 @@
 ---
 title: Echo in the Cold Sun
 date: 2026-01-29 22:31:19
-categories:
+categories: Poem
+description: "A poem about solitude, precision, logic, and finding purpose in a cold reflective landscape."
 tags:
+  - poem
+  - solitude
+  - logic
 ---
 A silent code, you walk the barren lands,
 No pleas offered, no outstretched hands.

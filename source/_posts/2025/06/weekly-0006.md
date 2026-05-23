@@ -1,8 +1,12 @@
 ---
-title: weekly-0006
+title: "Weekly Notes 0006: Travel, Moving, and Returning to Routine"
 categories: Log
+description: "Weekly notes after travel, with thoughts on moving, decluttering, game progress, and returning to routine."
+robots: "noindex, follow"
+sitemap: false
 tags:
   - weekly
+  - notes
 date: 2025-06-24 12:01:44
 ---
 ```
