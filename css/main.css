@@ -11,7 +11,7 @@
   --table-row-odd-bg-color: #f9f9f9;
   --table-row-hover-bg-color: #f5f5f5;
   --menu-item-bg-color: #f5f5f5;
-  --theme-color: #222;
+  --theme-color: #f4f1ea;
   --btn-default-bg: #222;
   --btn-default-color: #fff;
   --btn-default-border-color: #222;
@@ -1575,28 +1575,6 @@ pre code {
 .post-toc .nav .active-current > a:hover {
   color: #87daff;
 }
-.site-state {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  line-height: 1.4;
-}
-.site-state-item {
-  padding: 0 15px;
-}
-.site-state-item a {
-  border-bottom: 0;
-  display: block;
-}
-.site-state-item-count {
-  display: block;
-  font-size: 1.25em;
-  font-weight: 600;
-}
-.site-state-item-name {
-  color: inherit;
-  font-size: 0.875em;
-}
 .footer {
   color: #999;
   font-size: 0.875em;
@@ -1905,12 +1883,12 @@ pre code {
 }
 @media (min-width: 992px) {
   .post-body {
-    text-align: justify;
+    text-align: start;
   }
 }
 @media (max-width: 991px) {
   .post-body {
-    text-align: justify;
+    text-align: start;
   }
 }
 .post-body h1 .header-anchor,
@@ -2104,6 +2082,9 @@ pre code {
 }
 .post-meta-item-icon {
   margin-right: 3px;
+}
+.post-meta-item-text {
+  display: none;
 }
 @media (max-width: 991px) {
   .post-meta-item-text {
@@ -2637,7 +2618,7 @@ ul.breadcrumb li:last-child {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ffe00d;
+  background: #05dde3;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2656,4 +2637,281 @@ ul.breadcrumb li:last-child {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+html {
+  background: #f4f1ea;
+}
+body {
+  background: #f4f1ea;
+  color: #24201b;
+  font-family: Georgia, 'Times New Roman', 'Noto Serif TC', 'Noto Serif CJK TC', serif;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 1.78;
+}
+::selection {
+  background: rgba(140,63,47,0.12);
+  color: #24201b;
+}
+a {
+  border-bottom-color: rgba(140,63,47,0.24);
+  color: #8c3f2f;
+}
+a:hover {
+  border-bottom-color: #8c3f2f;
+  color: #5f2b22;
+}
+.headband {
+  display: none;
+}
+.main {
+  background: linear-gradient(90deg, rgba(0,0,0,0.025), transparent 22%, transparent 78%, rgba(0,0,0,0.018));
+  padding-top: 0;
+}
+.main-inner {
+  max-width: 760px;
+  width: calc(100% - 48px);
+}
+.header {
+  background: transparent;
+  margin: 0 auto;
+  max-width: 760px;
+  width: calc(100% - 48px);
+}
+.header-inner {
+  background: transparent;
+  border-bottom: 1px solid rgba(36,32,27,0.14);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 54px 0 18px;
+}
+.site-brand-container {
+  background: transparent;
+}
+.site-meta {
+  text-align: left;
+}
+.brand {
+  border-bottom: 0;
+  color: #24201b;
+  display: inline-block;
+  padding: 0;
+}
+.logo-line {
+  display: none;
+}
+.site-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.15em;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+.site-subtitle {
+  color: #766d62;
+  font-size: 0.9em;
+  margin: 8px 0 0;
+  text-align: left;
+}
+.site-nav {
+  margin-top: 24px;
+  text-align: left;
+}
+.menu {
+  margin: 0;
+}
+.menu .menu-item {
+  margin: 0 22px 0 0;
+}
+.menu .menu-item a {
+  border-bottom: 0;
+  color: #766d62;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.76em;
+  letter-spacing: 0.08em;
+  padding: 0;
+  text-transform: uppercase;
+}
+.menu .menu-item a:hover {
+  color: #8c3f2f;
+}
+.post-block {
+  background: transparent;
+  border-bottom: 1px solid rgba(36,32,27,0.12);
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 56px 0;
+}
+.posts-expand .post-block:first-child {
+  padding-top: 46px;
+}
+.post-title {
+  font-family: Georgia, 'Times New Roman', 'Noto Serif TC', 'Noto Serif CJK TC', serif;
+  font-size: 1.9em;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.24;
+  margin: 0;
+}
+.post-title-link {
+  border-bottom: 0;
+  color: #24201b;
+}
+.post-title-link:hover {
+  color: #8c3f2f;
+}
+.post-meta-container {
+  color: #766d62;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.78em;
+  letter-spacing: 0.02em;
+  margin-top: 12px;
+}
+.post-description {
+  color: #766d62;
+  font-family: Georgia, 'Times New Roman', 'Noto Serif TC', serif;
+  font-size: 1.03rem;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 1.65;
+  margin-top: 18px;
+}
+.post-body {
+  color: #24201b;
+  font-size: 1em;
+  line-height: 1.86;
+  margin-top: 30px;
+}
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.post-body h2 {
+  border-bottom: 1px solid rgba(36,32,27,0.12);
+  font-size: 1.05em;
+  margin-top: 2.4em;
+  padding-bottom: 0.25em;
+}
+.post-body h3 {
+  font-size: 0.96em;
+}
+.post-body p,
+.post-body ul,
+.post-body ol,
+.post-body blockquote {
+  margin-bottom: 1.25em;
+}
+.post-body blockquote {
+  border-left: 2px solid #b9afa2;
+  color: #514a42;
+  margin-left: 0;
+  padding: 0.2em 0 0.2em 1.2em;
+}
+.post-body code {
+  background: rgba(36,32,27,0.06);
+  border-radius: 3px;
+  color: #4c342d;
+  font-size: 0.86em;
+  padding: 0.12em 0.28em;
+}
+.highlight,
+pre {
+  background: #eee8dc;
+  border: 1px solid rgba(36,32,27,0.1);
+  border-radius: 4px;
+}
+.post-button .btn {
+  background: transparent;
+  border: 1px solid rgba(140,63,47,0.35);
+  border-radius: 999px;
+  color: #8c3f2f;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.75em;
+  letter-spacing: 0.08em;
+  padding: 3px 16px;
+  text-transform: uppercase;
+}
+.post-button .btn:hover {
+  background: rgba(140,63,47,0.12);
+  border-color: #8c3f2f;
+}
+.post-eof {
+  display: none;
+}
+.post-tags a {
+  background: rgba(36,32,27,0.055);
+  border: 0;
+  border-radius: 999px;
+  color: #766d62;
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.76em;
+  margin: 0 8px 8px 0;
+  padding: 3px 10px;
+}
+.post-tags a:hover {
+  background: rgba(140,63,47,0.12);
+  color: #8c3f2f;
+}
+.pagination {
+  border-top: 0;
+  margin: 42px 0;
+}
+.pagination .page-number,
+.pagination .extend {
+  border: 0;
+  color: #766d62;
+}
+.pagination .current {
+  background: transparent;
+  color: #24201b;
+  font-weight: 700;
+}
+.footer {
+  background: transparent;
+  color: #766d62;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.78em;
+}
+.footer-inner {
+  border-top: 1px solid rgba(36,32,27,0.12);
+  max-width: 760px;
+  padding: 22px 0 42px;
+  width: calc(100% - 48px);
+}
+table {
+  font-size: 0.9em;
+}
+hr {
+  background: rgba(36,32,27,0.14);
+  height: 1px;
+}
+@media (max-width: 767px) {
+  body {
+    font-size: 17px;
+  }
+  .header,
+  .main-inner,
+  .footer-inner {
+    width: calc(100% - 32px);
+  }
+  .header-inner {
+    padding-top: 36px;
+  }
+  .site-title {
+    font-size: 1.72em;
+  }
+  .menu .menu-item {
+    margin-right: 14px;
+  }
+  .post-block {
+    padding: 38px 0;
+  }
+  .post-title {
+    font-size: 1.55em;
+  }
 }

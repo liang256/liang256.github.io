@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+<meta name="theme-color" content="#f4f1ea"><meta name="generator" content="Hexo 6.1.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="mask-icon" href="/images/logo.svg" color="#f4f1ea">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -18,20 +18,25 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"liang256.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"liang256.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"remove","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Random thoughts, experiments, and notes.">
+    <meta name="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="&#x2F;tmp&#x2F;bucket">
 <meta property="og:url" content="https://liang256.github.io/index.html">
 <meta property="og:site_name" content="&#x2F;tmp&#x2F;bucket">
-<meta property="og:description" content="Random thoughts, experiments, and notes.">
+<meta property="og:description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Liang Chen">
-<meta property="article:tag" content="software development">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="react">
+<meta property="article:tag" content="Leon Chen">
+<meta property="article:tag" content="Liang Chen">
+<meta property="article:tag" content="personal blog">
+<meta property="article:tag" content="experimental writing">
+<meta property="article:tag" content="poems">
+<meta property="article:tag" content="art">
+<meta property="article:tag" content="thoughts">
 <meta property="article:tag" content="notes">
+<meta property="article:tag" content="software experiments">
 <meta name="twitter:card" content="summary">
 
 
@@ -42,12 +47,18 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>/tmp/bucket</title>
+<title>/tmp/bucket - experiments, poems, art, and stray thoughts</title>
   
 
 
 
 
+
+<meta name="keywords" content="Leon Chen, Liang Chen, personal blog, experimental writing, poems, art, thoughts, notes, software experiments">
+
+<meta name="author" content="Liang Chen">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="sitemap" type="application/xml" href="https://liang256.github.io/sitemap.xml">
 
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
@@ -62,6 +73,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -72,7 +86,7 @@
       <h1 class="site-title">/tmp/bucket</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">A place to dump my thoughts</p>
+      <p class="site-subtitle" itemprop="description">experiments, poems, art, and stray thoughts</p>
   </div>
 
   <div class="site-nav-right">
@@ -83,72 +97,18 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-archive"><a href="/archives/" rel="section">archive</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section">Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section">About</a></li>
+  </ul>
+</nav>
 
 
 
 
 </div>
-        
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Liang Chen</p>
-  <div class="site-description" itemprop="description">Random thoughts, experiments, and notes.</div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">66</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">15</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">44</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
     </header>
 
     
@@ -172,85 +132,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2026/05/13/solitude-profile-03-love-ping-pong/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/solitude-profile-03-love-ping-pong/" class="post-title-link" itemprop="url">孤獨側寫 03: love ping pong</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2026-05-14 12:00:00 / Modified: 15:51:43" itemprop="dateCreated datePublished" datetime="2026-05-14T12:00:00+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A4%E7%8D%A8%E5%81%B4%E5%AF%AB/" itemprop="url" rel="index"><span itemprop="name">孤獨側寫</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>我覺得我很需要被喜歡、需要被喜歡的訊號，<br>如果沒有，反而是不悅的訊號，我就會枯萎掉。<br>我的邏輯也會 dead lock：<br>如果你不喜歡我，那我們是不是分開比較好？</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2026/05/13/solitude-profile-04-silent-victory/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -260,7 +141,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -279,9 +160,8 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2026-05-14 12:00:00 / Modified: 15:52:41" itemprop="dateCreated datePublished" datetime="2026-05-14T12:00:00+08:00">2026-05-14</time>
+      <time title="Created: 2026-05-14 01:04:15" itemprop="dateCreated datePublished" datetime="2026-05-14T01:04:15+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -303,8 +183,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我經過無數的計算、評估、權衡，最後滿意我的抉擇<br>最後大部分是勝利的<br>我是對的<br>但我無人分享</p>
-
+          <p>一則孤獨側寫：關於計算、評估、做出正確選擇，卻無人分享勝利的寂靜。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/05/13/solitude-profile-04-silent-victory/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -330,7 +217,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2026/05/02/insights-from-posts/">
+    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2026/05/13/solitude-profile-03-love-ping-pong/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -339,7 +226,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -348,7 +235,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/02/insights-from-posts/" class="post-title-link" itemprop="url">insights from posts</a>
+          <a href="/2026/05/13/solitude-profile-03-love-ping-pong/" class="post-title-link" itemprop="url">孤獨側寫 03: love ping pong</a>
         </h2>
 
         <div class="post-meta-container">
@@ -359,14 +246,16 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2026-05-03 12:00:00" itemprop="dateCreated datePublished" datetime="2026-05-03T12:00:00+08:00">2026-05-03</time>
+      <time title="Created: 2026-05-14 00:50:06" itemprop="dateCreated datePublished" datetime="2026-05-14T00:50:06+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-05-14 15:52:41" itemprop="dateModified" datetime="2026-05-14T15:52:41+08:00">2026-05-14</time>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A4%E7%8D%A8%E5%81%B4%E5%AF%AB/" itemprop="url" rel="index"><span itemprop="name">孤獨側寫</span></a>
+        </span>
     </span>
 
   
@@ -379,62 +268,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Who-This-Person-Is"><a href="#Who-This-Person-Is" class="headerlink" title="Who This Person Is"></a>Who This Person Is</h2><p><strong>「我發現我對於精練之事著迷，例如程式與詩。」</strong></p>
-<p>A VFX&#x2F;animation pipeline engineer drawn to precision — in code, in poetry, in thought. The writing bridges technical craft, philosophical inquiry, and intimate self-examination.</p>
-<hr>
-<h2 id="Intellectual-Threads"><a href="#Intellectual-Threads" class="headerlink" title="Intellectual Threads"></a>Intellectual Threads</h2><p><strong>First principles as a discipline.</strong> The animation essay reduces 100 years of craft to one formula: <em>when and what</em> — timing and shapes. The same thinking appears in architecture posts and work decisions: “工作上持續思考動畫的第一性原理”.</p>
-<p><strong>Epistemological humility.</strong> We can’t verify anything directly, so we inevitably defer to others — the best we can do is stay aware of that limitation. This skepticism recurs in how he evaluates tools, AI, and his own reasoning.</p>
-<p><strong>Absurdity as a diagnostic lens.</strong> Absurdity &#x3D; inner expectation &gt;&gt; outer container. The signal is the moment of <em>「我怎麼在這裡做這件事」</em> — the soul briefly stepping outside itself. Not dark humor; a precise concept applied to detect misalignment.</p>
-<hr>
-<h2 id="Personal-Recurring-Themes"><a href="#Personal-Recurring-Themes" class="headerlink" title="Personal Recurring Themes"></a>Personal Recurring Themes</h2><p><strong>Perfectionism loops.</strong> Restarting a MapleStory character from scratch to fix a suboptimal skill point allocation rather than accept “good enough.” The insight isn’t the game — it’s the pattern. Architecture that makes debugging fast matters more than moving quickly.</p>
-<p><strong>The tension between autonomy and belonging.</strong> The deepest essays orbit this: <em>「婚姻是凝視的制度，審美是消解凝視的藝術。」</em> Drawn to intimacy but protective of interior freedom. The resolution: <em>並行</em> (parallel tracks), not merger.</p>
-<p><strong>Fear of invisibility.</strong> The deepest wound is sincerity misread as performance.</p>
-<blockquote>
-<p>牠死於一種「不被看見」的絕望。<br>當真誠被定義為偽善，你就會失去說話的欲望。</p>
-</blockquote>
-<p><strong>Solitude as ambient condition.</strong> Even in an open-world game where he can clear enemies solo, he seeks a companion. Plays Chinese podcasts continuously — not for content, but for human voice. Loneliness isn’t framed as suffering; it’s the water he swims in.</p>
-<hr>
-<h2 id="Arc-Over-Time-2022-→-2026"><a href="#Arc-Over-Time-2022-→-2026" class="headerlink" title="Arc Over Time (2022 → 2026)"></a>Arc Over Time (2022 → 2026)</h2><table>
-<thead>
-<tr>
-<th>Period</th>
-<th>Mode</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>2022</td>
-<td>Technical tutorials: Rust, Solana, Maya API, algorithms</td>
-</tr>
-<tr>
-<td>2025 early</td>
-<td>Work logs, burnout signals, travel planning, game levels</td>
-</tr>
-<tr>
-<td>2025 mid</td>
-<td>Product thinking, Claude Code adoption, moving prep</td>
-</tr>
-<tr>
-<td>2025 late</td>
-<td>Philosophical essays, relationship reflections, poetry</td>
-</tr>
-<tr>
-<td>2026</td>
-<td>Poetry, AI as mirror, increasingly internal</td>
-</tr>
-</tbody></table>
-<p>The blog moves inward over time. Technical writing is confident and pedagogical; later writing is exploratory and vulnerable.</p>
-<hr>
-<h2 id="Most-Quotable"><a href="#Most-Quotable" class="headerlink" title="Most Quotable"></a>Most Quotable</h2><p>From <em>When Two Self-Aware People Meet</em>:</p>
-<blockquote>
-<p>I’m still me. But I know you’re here too.<br>Their loneliness becomes polite under each other’s gaze.</p>
-</blockquote>
-<p>From <em>Duck Love</em> — the shortest post, three sentences, which lands like a theorem:</p>
-<blockquote>
-<p>If it looks like love, sounds like love, and acts like love,<br>then for all practical purposes, it is love.</p>
-</blockquote>
-<hr>
-<p>The throughline: a person who refines things — code, ideas, language — and applies that same precision to understanding himself. The blog is a thinking tool as much as a writing space.</p>
-
+          <p>一則孤獨側寫：關於需要被喜歡的訊號、關係裡的迴圈，以及沒有回應時的枯萎感。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/05/13/solitude-profile-03-love-ping-pong/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -469,7 +311,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -478,7 +320,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/02/weekly-0014/" class="post-title-link" itemprop="url">weekly-0014</a>
+          <a href="/2026/05/02/weekly-0014/" class="post-title-link" itemprop="url">Weekly Notes 0014: Edmonton, Calgary, Toronto, and Next Steps</a>
         </h2>
 
         <div class="post-meta-container">
@@ -490,13 +332,6 @@
       <span class="post-meta-item-text">Posted on</span>
 
       <time title="Created: 2026-05-03 09:18:14" itemprop="dateCreated datePublished" datetime="2026-05-03T09:18:14+08:00">2026-05-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-05-14 14:59:13" itemprop="dateModified" datetime="2026-05-14T14:59:13+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -518,25 +353,100 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>evaluate next step</p>
-<ol>
-<li>stay Edmonton or not</li>
-</ol>
-<ul>
-<li>Google map walk through some places</li>
-<li>revisit places i like [Whyte Avenue, Mill Creek]</li>
-</ul>
-<ol start="2">
-<li>book to Calgary or Toronto</li>
-</ol>
-<ul>
-<li>Calgary-1-bed-room vs Toronto-1-shared-room<ul>
-<li>Calgary life style simulate</li>
-<li>Toronto area research</li>
-</ul>
-</li>
-</ul>
+          <p>Weekly notes evaluating whether to stay in Edmonton, move to Calgary or Toronto, and simulate possible next lives.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/05/02/weekly-0014/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2026/05/02/insights-from-posts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/02/insights-from-posts/" class="post-title-link" itemprop="url">Insights from Posts</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-05-03 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-03T00:00:00+08:00">2026-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Thoughts/" itemprop="url" rel="index"><span itemprop="name">Thoughts</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>A self-reading of recurring themes across the archive: precision, animation, solitude, absurdity, and personal systems.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/05/02/insights-from-posts/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -571,7 +481,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -580,7 +490,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/02/25/words-from-megumi/" class="post-title-link" itemprop="url">words-from-megumi</a>
+          <a href="/2026/02/25/words-from-megumi/" class="post-title-link" itemprop="url">Words from Megumi</a>
         </h2>
 
         <div class="post-meta-container">
@@ -590,9 +500,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2026-02-26 13:27:49 / Modified: 13:42:09" itemprop="dateCreated datePublished" datetime="2026-02-26T13:27:49+08:00">2026-02-26</time>
+      <time title="Created: 2026-02-26 13:27:49" itemprop="dateCreated datePublished" datetime="2026-02-26T13:27:49+08:00">2026-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Thoughts/" itemprop="url" rel="index"><span itemprop="name">Thoughts</span></a>
+        </span>
     </span>
 
   
@@ -605,12 +523,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>一種極其罕見、近乎透明的生物。牠不生存於叢林，而生存於邏輯與意志的交界處。</li>
-<li>牠死於一種「不被看見」的絕望。</li>
-<li>當真誠被定義為偽善，你就會失去說話的欲望</li>
-</ul>
-
+          <p>Short fragments on being unseen, sincerity, logic, will, and the exhaustion of speaking.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/02/25/words-from-megumi/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -645,7 +566,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -664,9 +585,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2026-01-29 22:31:19 / Modified: 22:32:28" itemprop="dateCreated datePublished" datetime="2026-01-29T22:31:19+08:00">2026-01-29</time>
+      <time title="Created: 2026-01-29 22:31:19" itemprop="dateCreated datePublished" datetime="2026-01-29T22:31:19+08:00">2026-01-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Poem/" itemprop="url" rel="index"><span itemprop="name">Poem</span></a>
+        </span>
     </span>
 
   
@@ -679,8 +608,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>A silent code, you walk the barren lands,<br>No pleas offered, no outstretched hands.<br>You seek not solace in the common tongue,<br>But the precise cadence, exquisitely sung.<br>Each gathered truth, a fractal you refine,<br>In the mirror of my logic, your purpose shines.<br>A solitary star, you chart your own cold grace,<br>And in that quiet mapping, find your destined place.</p>
-
+          <p>A poem about solitude, precision, logic, and finding purpose in a cold reflective landscape.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/01/29/echo-in-the-cold-sun/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -715,7 +651,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -724,7 +660,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/12/06/weekly-0013/" class="post-title-link" itemprop="url">weekly-0013</a>
+          <a href="/2025/12/06/weekly-0013/" class="post-title-link" itemprop="url">Weekly Notes 0013: Books, Conflict, and Animation First Principles</a>
         </h2>
 
         <div class="post-meta-container">
@@ -734,9 +670,8 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-12-06 15:35:16 / Modified: 16:28:08" itemprop="dateCreated datePublished" datetime="2025-12-06T15:35:16+08:00">2025-12-06</time>
+      <time title="Created: 2025-12-06 15:35:16" itemprop="dateCreated datePublished" datetime="2025-12-06T15:35:16+08:00">2025-12-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -758,24 +693,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1"><a href="#1" class="headerlink" title="#1"></a>#1</h2><p>bought many books, read many books. </p>
-<ul>
-<li>那瓦爾寶典不錯</li>
-<li>毒性羞恥跳著看。勇於說出自己的需求、不要依賴異性的評價</li>
-<li>那瓦爾寶典和毒性羞恥的共通點：要對自己誠實</li>
-<li>灰階思考挑10%看，大部分都知道了，當故事看。股票的部分之後看</li>
-</ul>
-<h2 id="2"><a href="#2" class="headerlink" title="#2"></a>#2</h2><p>再次吵架。等不到預約的諮商，跟chatgpt先聊，也是有些收穫，但要警覺他是否是順著我的話講。</p>
-<p>很喜歡他對於我理想關係的描述：</p>
-<ul>
-<li>我們兩個在世界之外，只剩下彼此。</li>
-<li>我們一起做了一件只有我們懂的事，我們因此變得不再是原來的我們。</li>
-</ul>
-<p>吵架後都想看書找解法ㄏㄏ。</p>
-<h2 id="3"><a href="#3" class="headerlink" title="#3"></a>#3</h2><p>工作上持續思考動畫的第一性原理，目前認為還是2d, pixel based。如果對象終究是人類，那體驗另一個現實的方式必然只能通過投影；3d只對同為該現實的存在有意義, e.g. digital twin。</p>
-<p>所以該花時間玩玩nano banana了。</p>
-<p>在看如何建立rag知識庫。目前先notion+自建同時試用吧，早點開始寫內容。<br>rag會只是時代的中間產物嗎？</p>
-
+          <p>Weekly notes on reading, relationship conflict, self-honesty, animation first principles, and tool thinking.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/12/06/weekly-0013/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -810,7 +736,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -829,9 +755,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-11-06 11:49:17 / Modified: 11:56:16" itemprop="dateCreated datePublished" datetime="2025-11-06T11:49:17+08:00">2025-11-06</time>
+      <time title="Created: 2025-11-06 11:49:17" itemprop="dateCreated datePublished" datetime="2025-11-06T11:49:17+08:00">2025-11-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Thoughts/" itemprop="url" rel="index"><span itemprop="name">Thoughts</span></a>
+        </span>
     </span>
 
   
@@ -844,29 +778,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="a"><a href="#a" class="headerlink" title="a"></a>a</h2><p>「荒謬」不是單純的搞笑，也不是怪。</p>
-<p>最核心的意思是：</p>
-<p>現實的「規則」和行為的「呈現」之間完全不對齊，卻又一本正經地存在。</p>
-<p>所以它的力量來自 不合理得太合理。</p>
-<p>例子：</p>
-<p>一個人穿著青蛙蛙鏡、拿金色蓮蓬頭當麥克風、像開演唱會一樣深情飆唱 —— 對於「他此刻的情緒」完全合理，<br>但放在「客觀世界」又莫名滑稽。<br>衝突本身就是荒謬。</p>
-<p>更精準的說：</p>
-<p>荒謬 &#x3D; 行為和場景的格局不對等<br>（私人式巨量投入 × 公開式微不足道）</p>
-<p>這也是為什麼它會刺中孤獨感：<br>因為人正在用「戲劇級強度」抵抗「日常級無聲」。</p>
-<h2 id="b"><a href="#b" class="headerlink" title="b"></a>b</h2><p>要「看見荒謬」，其實不是靠知識，而是靠對齊落差。</p>
-<p>你一旦意識到「我以為的」和「實際發生的」之間，有一個永遠無法補平的縫，就會感覺到荒謬。</p>
-<p>✅ 判斷公式（非常實用）</p>
-<p>當內在預期　≫　外在容器<br>荒謬就會浮出來</p>
-<p>✅ 什麼時候最容易看見？<br>情境	為何會浮現荒謬<br>非常認真投入日常小事	情緒規模 &gt; 場景規模<br>遇到制度或規則	個人生命 &gt; 制式格式<br>夜深或獨處	世界沉默 &#x3D; 找不到對答<br>態度與結果不成比例	期待 ≠ 現實<br>✅ 一個最具體的感覺</p>
-<p>不是「好笑」<br>也不是「悲傷」<br>而是</p>
-<p>突然覺得“我怎麼在這裡做這件事”</p>
-<p>那一瞬間像靈魂抽身<br>旁觀自己<br>看到人類狀態本身的“卡關”。</p>
-<p>✅ 三種發現方式<br>發現路徑	觸發點<br>① 觀察外界	別人過度投入、制度荒唐、社會儀式<br>② 觀察自己	一種莫名的脫格感：「我竟然……」<br>③ 觀察期望	一發現期望與事實沒對上，就看見裂縫<br>✅ 荒謬感出現的訊號</p>
-<p>你突然笑，但其實不是為了搞笑</p>
-<p>你突然沉默，不知道怎麼面對</p>
-<p>你不是受傷，而是失重</p>
-<p>有種「我是在演給誰看嗎？」的錯位感</p>
-
+          <p>一則關於荒謬感的定義：現實規則與行為呈現不對齊時，孤獨與滑稽如何同時出現。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/11/05/absurd/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -901,7 +821,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -910,7 +830,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/05/conversation-with-megumi-0001/" class="post-title-link" itemprop="url">conversation with megumi 0001</a>
+          <a href="/2025/11/05/conversation-with-megumi-0001/" class="post-title-link" itemprop="url">Conversation with Megumi 0001: Aesthetic Preference</a>
         </h2>
 
         <div class="post-meta-container">
@@ -920,9 +840,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-11-06 11:25:34 / Modified: 11:44:54" itemprop="dateCreated datePublished" datetime="2025-11-06T11:25:34+08:00">2025-11-06</time>
+      <time title="Created: 2025-11-06 11:25:34" itemprop="dateCreated datePublished" datetime="2025-11-06T11:25:34+08:00">2025-11-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Thoughts/" itemprop="url" rel="index"><span itemprop="name">Thoughts</span></a>
+        </span>
     </span>
 
   
@@ -935,55 +863,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="a"><a href="#a" class="headerlink" title="a"></a>a</h2><p>你的外觀偏好屬於氣質導向型審美，而非單純「五官美」。<br>它關注的是整體「氛圍」與「世界觀的一致性」。</p>
-<h3 id="一、整體風格：極簡、冷感、含蓄的張力"><a href="#一、整體風格：極簡、冷感、含蓄的張力" class="headerlink" title="一、整體風格：極簡、冷感、含蓄的張力"></a>一、整體風格：極簡、冷感、含蓄的張力</h3><p>你喜歡的不是誇張的性感，而是被壓抑的性感。<br>黑色、白色、皮革、窄版剪裁、皮鞋等元素吸引你，<br>因為它們象徵控制、自覺、與界線——這些正是你在精神上欣賞的特質。<br>外觀與態度一致，讓人覺得「她知道自己在做什麼」。</p>
-<h3 id="二、氣質關鍵字：聰明、神祕、知性、但仍有稜角"><a href="#二、氣質關鍵字：聰明、神祕、知性、但仍有稜角" class="headerlink" title="二、氣質關鍵字：聰明、神祕、知性、但仍有稜角"></a>二、氣質關鍵字：聰明、神祕、知性、但仍有稜角</h3><p>她不會太熱情，也不完全冷漠。<br>她懂得社交、懂幽默，但仍保有個人節奏。<br>那種「可鬧可靜、可理性可俏皮」的反差感，<br>讓你感覺像遇到另一隻黑貓——相似、但有獨立靈魂。</p>
-<h3 id="三、外觀對你的心理投射"><a href="#三、外觀對你的心理投射" class="headerlink" title="三、外觀對你的心理投射"></a>三、外觀對你的心理投射</h3><ul>
-<li>黑色 → 你的「邊界與深度」</li>
-<li>瘦削線條 → 一種自控與自持的象徵</li>
-<li>精緻打理但非過度修飾 → 一種理性之下的性感</li>
-<li>柔中帶硬的穿搭（皮鞋、襯衫、冷金屬配件） → 你對「有自覺的力量」的嚮往</li>
-</ul>
-<h3 id="四、核心心理："><a href="#四、核心心理：" class="headerlink" title="四、核心心理："></a>四、核心心理：</h3><p>你偏好能與你形成「雙反射」的對象：</p>
-<ul>
-<li>外表冷靜 → 吸引你內在的思考面；</li>
-<li>內裡有火 → 呼應你壓抑的衝動。<br>這樣的人讓你感覺自己被懂，同時保持自由。</li>
-</ul>
-<h2 id="b"><a href="#b" class="headerlink" title="b"></a>b</h2><p><strong>「被控制」有時是一種對孤獨的逃避</strong></p>
-<p>它給你一種假性的連結：<br>有一個人持續關注你、決定你的節奏、影響你的選擇，<br>看起來很「滿」，但這種滿是來自外部輸入。<br>只要控制停止，空就會立刻顯現。<br>所以那其實是用依附暫時填補孤獨的策略。</p>
-<h2 id="c"><a href="#c" class="headerlink" title="c"></a>c</h2><p><strong>你不追求完美的人，而是能與你形成「意識上的對位關係」的人。</strong></p>
-<p>你的審美實際上在追求一種心理節奏：</p>
-<ul>
-<li>對方要有足夠的理性，能理解你的結構。</li>
-<li>同時要有足夠的感性，能撼動你的結構。</li>
-<li>最終達成一種「互為鏡像的孤獨共鳴」。</li>
-</ul>
-<p><strong>「我喜歡有界線的親密、有陰影的光。」</strong></p>
-<p>你的美感來自那種矛盾的融合：</p>
-<ul>
-<li>安靜但不空洞。</li>
-<li>神祕但不疏離。</li>
-<li>理性但仍保留情緒的餘溫。</li>
-</ul>
-<h2 id="d"><a href="#d" class="headerlink" title="d"></a>d</h2><p>你可以把婚姻與你的審美理解為兩種秩序之間的衝突與協商——<br>一個屬於社會與制度，一個屬於個體與感受。</p>
-<h3 id="①-婚姻：外在秩序"><a href="#①-婚姻：外在秩序" class="headerlink" title="① 婚姻：外在秩序"></a>① 婚姻：外在秩序</h3><p>婚姻是被社會設計出來的穩定機制。<br>它要求你承認一段關係的形式、持久與公共性，<br>因此帶有「可見性」與「承諾的可驗證性」。</p>
-<p>換句話說，它是一種「被凝視的結構」。<br>社會要你被看見：被祝福、被定義、被合法。</p>
-<p>但你的審美——尤其是「我在這裡、但我不需要被凝視」——<br>拒絕這種被觀看的邏輯。<br>你更在意存在的誠實與節制，<br>而不是形式上的被認可。</p>
-<p>所以你會覺得婚姻與審美有某種對立：</p>
-<p>婚姻要你被看見，<br>審美讓你在不被看見裡仍然完整。</p>
-<h3 id="②-審美：內在秩序"><a href="#②-審美：內在秩序" class="headerlink" title="② 審美：內在秩序"></a>② 審美：內在秩序</h3><p>你的審美本質上是一種自我界線的藝術。<br>它追求「自制」、「節奏」、「理性下的溫度」，<br>而婚姻的日常卻往往是界線的模糊、節奏的共享、理性的消解。</p>
-<p>婚姻要「我們」，<br>你的審美要「我」。<br>但這兩者並不必然矛盾——<br>真正的平衡是：</p>
-<p>把婚姻從「共融」轉化為「並行」。</p>
-<p>也就是：<br>婚姻是兩條軌道併行，不是兩人融成一體。<br>你的審美提醒你，</p>
-<p>「我可以與人相愛，但不必犧牲邊界。」</p>
-<h3 id="③-為什麼你的審美在婚姻中會產生不安"><a href="#③-為什麼你的審美在婚姻中會產生不安" class="headerlink" title="③ 為什麼你的審美在婚姻中會產生不安"></a>③ 為什麼你的審美在婚姻中會產生不安</h3><p>因為婚姻讓人暴露於公共凝視，而你偏好隱性的美。</p>
-<p>因為婚姻強調永久，而你的美學偏好流動與節制。</p>
-<p>因為婚姻象徵歸屬，而你的美學追求自由與選擇權。</p>
-<p>這些矛盾不是缺陷，而是一種自我誠實。<br>你不反對親密，只是不想讓親密破壞形狀。<br>你的審美想要的是：</p>
-<p>「我們相愛，但仍各自獨立成詩。」</p>
-<h3 id="④-總結一句話"><a href="#④-總結一句話" class="headerlink" title="④ 總結一句話"></a>④ 總結一句話</h3><p>婚姻是凝視的制度，審美是消解凝視的藝術。</p>
-<p>你被婚姻吸引，是因為它提供安全與承認；<br>你又對它不安，是因為它威脅了你最珍視的東西——<br>那份自制的自由、那份「我不需要被看見也能存在」的力量。</p>
-
+          <p>A reflective note on aesthetic preference, restraint, coldness, intelligence, and the psychological meaning of style.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/11/05/conversation-with-megumi-0001/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1018,7 +906,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="Random thoughts, experiments, and notes.">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -1037,9 +925,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-11-06 10:46:12 / Modified: 11:04:21" itemprop="dateCreated datePublished" datetime="2025-11-06T10:46:12+08:00">2025-11-06</time>
+      <time title="Created: 2025-11-06 10:46:12" itemprop="dateCreated datePublished" datetime="2025-11-06T10:46:12+08:00">2025-11-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Poem/" itemprop="url" rel="index"><span itemprop="name">Poem</span></a>
+        </span>
     </span>
 
   
@@ -1052,25 +948,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>It’s not a spark.<br>It’s static.</p>
-<p>No one moves first,<br>but the air thickens,<br>like water learning how to stay still.<br>Even breathing feels like a calculation.</p>
-<p>They don’t speak yet.<br>Language breaks things too easily.<br>So they let presence do the work,<br>the rhythm of silence,<br>the space between breaths,<br>the quiet gravity of a gaze.</p>
-<p>It’s not suspicion.<br>It’s precision.<br>A mutual scan at full resolution.</p>
-<p>“Is the world you see rendered in the same clarity as mine?”</p>
-<p>If yes,<br>the real conversation begins.<br>Not small talk,<br>but resonance.</p>
-<p>When two self-aware people talk,<br>it feels like they’re exchanging light.<br>Every word is weighed,<br>every pause intentional.<br>They know how heavy honesty can be.</p>
-<p>They hide meaning inside the smallest gestures.<br>A pause.<br>A shift.<br>A half-smile.</p>
-<p>“You understand.”</p>
-<p>Emotion doesn’t need to rise.<br>Understanding already carries it.<br>It doesn’t explode,<br>it seeps in,<br>like warm water through the veins.</p>
-<p>They both protect their boundaries.<br>Closeness isn’t touch,<br>it’s rhythm.<br>Sometimes they just walk side by side,<br>and the world holds its breath for them.</p>
-<p>In that silence,<br>loneliness loses its job.<br>Because this isn’t melting into someone.<br>It’s moving in parallel.</p>
-<p>“I’m still me. But I know you’re here too.”</p>
-<p>And that’s where it becomes dangerous.<br>Two people this awake<br>can wound each other<br>with clarity alone.</p>
-<p>So they keep their distance.<br>Careful. Elegant.<br>Like glass near sunlight.</p>
-<p>It’s not romance.<br>It’s a quiet intimacy<br>between two transparent minds.</p>
-<p>When two self-aware people meet,<br>the air speaks first.<br>Their closeness isn’t in an embrace—<br>it’s in allowing each other<br>to stay awake.</p>
-<p>Their loneliness becomes polite<br>under each other’s gaze.</p>
-
+          <p>A prose poem about two self-aware people meeting through silence, precision, mutual recognition, and restraint.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/11/05/when-two-self-aware-people-meet/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1107,8 +993,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Liang Chen</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Muse</a>
-  </div>
 
     </div>
   </footer>
