@@ -132,6 +132,91 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2025/05/04/weekly-0002/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/05/04/weekly-0002/" class="post-title-link" itemprop="url">Weekly Notes 0002: Restarting, Games, and Perfectionism</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-05-05 12:57:10" itemprop="dateCreated datePublished" datetime="2025-05-05T12:57:10+08:00">2025-05-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Log/" itemprop="url" rel="index"><span itemprop="name">Log</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Weekly notes on restarting a game character, perfectionism, memory, and small personal observations.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/05/04/weekly-0002/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2025/04/27/log-0001/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -940,86 +1025,6 @@
 <p>An easy solution is to append a SPACE to the given string at the beginning.</p>
 <p><img src="/2022/07/20/go-leetcode-crop-n-length-string/append-space.png"></p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">crop</span><span class="params">(s <span class="type">string</span>, n <span class="type">int</span>)</span></span> <span class="type">string</span> &#123;</span><br><span class="line">	s = s + <span class="string">&quot; &quot;</span> <span class="comment">// append an extra space</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// keep moving right until reaching the first character</span></span><br><span class="line">	l := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> l &lt; <span class="built_in">len</span>(s)<span class="number">-1</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> s[l] == <span class="string">&#x27; &#x27;</span> &#123;</span><br><span class="line">			l++</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// start from `l+n` or the last char (extra space)</span></span><br><span class="line">    <span class="comment">// keep moving left until reaching the first space</span></span><br><span class="line">	r := min(l+n, <span class="built_in">len</span>(s)<span class="number">-1</span>)</span><br><span class="line">	<span class="keyword">for</span> r &gt; l &#123;</span><br><span class="line">		<span class="keyword">if</span> s[r] == <span class="string">&#x27; &#x27;</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			r--</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s[l:r]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">min</span><span class="params">(i, j <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> i &lt; j &#123;</span><br><span class="line">		<span class="keyword">return</span> i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> j</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/06/30/first-opengl-app-on-mac-xcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/30/first-opengl-app-on-mac-xcode/" class="post-title-link" itemprop="url">First OpenGL App On Mac | Xcode</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-07-01 13:53:45" itemprop="dateCreated datePublished" datetime="2022-07-01T13:53:45+08:00">2022-07-01</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h3><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jianshu.com/p/eedc41051bd9">Follow this tutorial</a></p>
-<h3 id="New-C-Project-in-Xcode"><a href="#New-C-Project-in-Xcode" class="headerlink" title="New C++ Project in Xcode"></a>New C++ Project in Xcode</h3><p>Select command line tool<br><img src="/2022/06/30/first-opengl-app-on-mac-xcode/new.png"></p>
-<h3 id="Edit-Header-Search-Paths-Library-Search-Paths"><a href="#Edit-Header-Search-Paths-Library-Search-Paths" class="headerlink" title="Edit Header Search Paths &amp; Library Search Paths"></a>Edit Header Search Paths &amp; Library Search Paths</h3><p>I could not find where to edit <code>Header Search Paths</code> and <code>Library Search Paths</code> until I found this <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.youtube.com/watch?v=hrPm7tWC-BI">Toutube tutorial</a>.</p>
-<p><img src="/2022/06/30/first-opengl-app-on-mac-xcode/path.png"></p>
-<h3 id="Set-additional-preferences-like-below"><a href="#Set-additional-preferences-like-below" class="headerlink" title="Set additional preferences like below"></a>Set additional preferences like below</h3><p><img src="/2022/06/30/first-opengl-app-on-mac-xcode/signing_capabilities.png"></p>
-<p>build shorcut in xCode: <code>command + b</code></p>
-<h3 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h3><ul>
-<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.jianshu.com/p/eedc41051bd9">Simple OpenGL App on Mac</a></li>
-<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.youtube.com/watch?v=hrPm7tWC-BI">How to fix C++ header file not found in Xcode</a></li>
-<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://stackoverflow.com/questions/67049987/xcode-gives-error-when-i-add-libraries-dyld-library-not-loaded">Xcode gives error when I add libraries: dyld: Library not loaded</a></li>
-<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.cnblogs.com/fijiisland/p/14057950.html">环境配置: macOS配置GLAD+GLFW的OpenGL环境(CMake &#x2F; CLion)</a></li>
-</ul>
-
       
     </div>
 

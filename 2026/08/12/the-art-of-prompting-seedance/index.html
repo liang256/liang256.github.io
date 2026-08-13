@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#f4f1ea"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#f4f1ea">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"liang256.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"remove","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Notes from testing Seedance on how text, playblasts, and keyframes trade control for animation quality—and why leaving room for the model often works best.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Art of Prompting Seedance">
+<meta property="og:url" content="https://liang256.github.io/2026/08/12/the-art-of-prompting-seedance/index.html">
+<meta property="og:site_name" content="&#x2F;tmp&#x2F;bucket">
+<meta property="og:description" content="Notes from testing Seedance on how text, playblasts, and keyframes trade control for animation quality—and why leaving room for the model often works best.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://liang256.github.io/2026/08/12/the-art-of-prompting-seedance/cover.png">
+<meta property="article:published_time" content="2026-08-12T10:52:04.000Z">
+<meta property="article:modified_time" content="2026-08-13T00:52:15.078Z">
+<meta property="article:author" content="Liang Chen">
+<meta property="article:tag" content="thoughts">
+<meta property="article:tag" content="tools">
+<meta property="article:tag" content="animation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liang256.github.io/2026/08/12/the-art-of-prompting-seedance/cover.png">
+
+
+<link rel="canonical" href="https://liang256.github.io/2026/08/12/the-art-of-prompting-seedance/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://liang256.github.io/2026/08/12/the-art-of-prompting-seedance/","path":"2026/08/12/the-art-of-prompting-seedance/","title":"The Art of Prompting Seedance"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>The Art of Prompting Seedance | /tmp/bucket</title>
+  
+
+
+
+
+
+<meta name="keywords" content="Leon Chen, Liang Chen, personal blog, experimental writing, poems, art, thoughts, notes, software experiments">
+
+<meta name="author" content="Liang Chen">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="sitemap" type="application/xml" href="https://liang256.github.io/sitemap.xml">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">/tmp/bucket</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">experiments, poems, art, and stray thoughts</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-archive"><a href="/archives/" rel="section">archive</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section">Tags</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section">About</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2026/08/12/the-art-of-prompting-seedance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="The Art of Prompting Seedance | /tmp/bucket">
+      <meta itemprop="description" content="Notes from testing Seedance on how text, playblasts, and keyframes trade control for animation quality—and why leaving room for the model often works best.">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          The Art of Prompting Seedance
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-08-12 18:52:04" itemprop="dateCreated datePublished" datetime="2026-08-12T18:52:04+08:00">2026-08-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Animation/" itemprop="url" rel="index"><span itemprop="name">Animation</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Notes from testing Seedance on how text, playblasts, and keyframes trade control for animation quality—and why leaving room for the model often works best.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/2026/08/12/the-art-of-prompting-seedance/cover.png" class="" title="The Art of Prompting Seedance">
+
+<p>These observations are about prompting Seedance for animation generation.</p>
+<ol>
+<li><strong>Rich text performance description + asset reference</strong> works best.</li>
+<li><strong>Video playblast + brief text description + asset reference</strong> works, but may sacrifice the quality and naturalness of the animation because the model is trying too hard to match the provided keyframes.</li>
+<li><strong>Keyframes + brief text description + asset reference</strong> is essentially the same idea, except that keyframes are used to force the model to generate the in-between animation. It works, but the model may either sacrifice animation quality to match the keyframes, or still fail to follow the keyframes exactly.</li>
+</ol>
+<p>Both (2) and (3) approaches are fundamentally attempts to gain stronger control through keyframes. But based on our tests, giving the model the target performance as text and letting it figure out how to get there usually produces better animation.</p>
+<p>Video generation prompting is fundamentally an art of balancing information density.</p>
+<p>We need to provide enough information for the model to understand the goal, while deliberately leaving enough room for it to perform well on its own.</p>
+<p>There is also a production benefit to this: the more we can leave to the model, the less input we need to prepare. That reduction in preparation cost is where generative video can actually create production savings.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/thoughts/" rel="tag"># thoughts</a>
+              <a href="/tags/tools/" rel="tag"># tools</a>
+              <a href="/tags/animation/" rel="tag"># animation</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/06/20/my-fav-subgent-spell/" rel="prev" title="my-fav-subgent-spell">
+                  <i class="fa fa-chevron-left"></i> my-fav-subgent-spell
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liang Chen</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"liang256/liang256.github.io","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
