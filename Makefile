@@ -1,10 +1,10 @@
 all: preview serve
 
-deploy: 
-	hexo clean && hexo deploy
+deploy:
+	npm run clean && npm run deploy
 
-serve: 
-	hexo server
+serve:
+	npm run server
 
-preview: 
-	hexo generate
+preview:
+	npm run build
