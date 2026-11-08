@@ -83,13 +83,24 @@ A warning like `Accessing non-existent property 'lineno' of module exports insid
 Create a post from a scaffold in `scaffolds/`:
 
 ```sh
+npx hexo weekly                        # next weekly post, auto-numbered (see below)
 npx hexo new "my-title"                # scaffolds/post.md
-npx hexo new weekly "weekly-log-0042"  # scaffolds/weekly.md
 npx hexo new leetcode "two-sum"        # scaffolds/leetcode.md
 npx hexo new draft "idea"              # source/_drafts/
 ```
 
 New posts go to `source/_posts/YYYY/MM/<title>.md`, with an asset folder of the same name next to the file (`post_asset_folder: true`).
+
+### Weekly posts
+
+`npx hexo weekly` finds the highest existing `weekly-NNNN.md` under `source/_posts/` and creates the next one from `scaffolds/weekly.md`:
+
+```sh
+npx hexo weekly                    # → 2026/11/weekly-0015.md, title "Weekly Notes 0015"
+npx hexo weekly "Rain and Tools"   # → title "Weekly Notes 0015: Rain and Tools"
+```
+
+The command is defined in `scripts/weekly.js` (Hexo loads `scripts/` automatically). Don't use `npx hexo new weekly` without a title: Hexo reads a lone `weekly` as the title and creates a normal post called "weekly".
 
 ## Publishing
 

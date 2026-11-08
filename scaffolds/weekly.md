@@ -2,6 +2,7 @@
 title: {{ title }}
 date: {{ date }}
 categories: Log
+description: ""
 tags:
     - weekly
 ---
