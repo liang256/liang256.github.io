@@ -132,6 +132,192 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/08/17/go-create-2d-matrix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/17/go-create-2d-matrix/" class="post-title-link" itemprop="url">Go: How To Create a 2D Matrix Properly?</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-17 14:27:04" itemprop="dateCreated datePublished" datetime="2022-08-17T14:27:04+08:00">2022-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Go/" itemprop="url" rel="index"><span itemprop="name">Go</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Slice-or-Array"><a href="#Slice-or-Array" class="headerlink" title="Slice or Array?"></a>Slice or Array?</h2><p>In Go, array can only be created by constant <code>int</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr := [<span class="number">4</span>]<span class="type">int</span> <span class="comment">// works</span></span><br><span class="line"></span><br><span class="line">size := <span class="number">4</span></span><br><span class="line">arr := [size]<span class="type">int</span> <span class="comment">// Not work!</span></span><br></pre></td></tr></table></figure>
+<p>Thus use <code>slice</code>, if we want to implement a function that create a N size matrix</p>
+<h2 id="Implement"><a href="#Implement" class="headerlink" title="Implement"></a>Implement</h2><h3 id="straight-forward"><a href="#straight-forward" class="headerlink" title="straight forward"></a>straight forward</h3><ul>
+<li>bad memory using, not contiguous matrix</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">newMatrix</span><span class="params">(s <span class="type">int</span>)</span></span> [][]<span class="type">int</span> &#123;</span><br><span class="line">    </span><br><span class="line">    m := <span class="built_in">make</span>([][]<span class="type">int</span>, s)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Wrong!</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// for _, row := range m &#123;</span></span><br><span class="line">    <span class="comment">//     row = make([]int, s)</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i, _ := <span class="keyword">range</span> m &#123;</span><br><span class="line">        m[i] = <span class="built_in">make</span>([]<span class="type">int</span>, s)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><ul>
+<li>ensure to get a contiguous matrix</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">newMatrix</span><span class="params">(s <span class="type">int</span>)</span></span> [][]<span class="type">int</span> &#123;</span><br><span class="line">	<span class="comment">// allocate the whole space of the matrix</span></span><br><span class="line">	spaces := <span class="built_in">make</span>([]<span class="type">int</span>, s*s)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create an empty matrix: [[] [] []...]</span></span><br><span class="line">	m := <span class="built_in">make</span>([][]<span class="type">int</span>, s)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// assign spaces to the matrix</span></span><br><span class="line">	i, j := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i &lt; s &#123;</span><br><span class="line">		m[i] = spaces[j : j+s]</span><br><span class="line">		i++</span><br><span class="line">		j += s</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> m</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Generic"><a href="#Generic" class="headerlink" title="Generic"></a>Generic</h3><p>more flexiable!</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">newMatrix</span>[<span class="title">T</span> <span class="title">any</span>]<span class="params">(s <span class="type">int</span>)</span></span> [][]T &#123;</span><br><span class="line">	<span class="comment">// allocate the whole space of the matrix</span></span><br><span class="line">	spaces := <span class="built_in">make</span>([]T, s*s)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// create an empty matrix: [[] [] []...]</span></span><br><span class="line">	m := <span class="built_in">make</span>([][]T, s)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// assign spaces to the matrix</span></span><br><span class="line">	i, j := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i &lt; s &#123;</span><br><span class="line">		m[i] = spaces[j : j+s]</span><br><span class="line">		i++</span><br><span class="line">		j += s</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> m</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Usage</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m := newMatrix[unit](<span class="number">3</span>) <span class="comment">// [[0 0 0] [0 0 0] [0 0 0]]</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://stackoverflow.com/questions/39804861/what-is-a-concise-way-to-create-a-2d-slice-in-go">at is a concise way to create a 2D slice in Go?</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/07/20/go-leetcode-max-two-sub-slices-sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Liang Chen">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="/tmp/bucket">
+      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | /tmp/bucket">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/20/go-leetcode-max-two-sub-slices-sum/" class="post-title-link" itemprop="url">Go Leetcode: Max Two Sub Slices Sum</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-21 13:46:55" itemprop="dateCreated datePublished" datetime="2022-07-21T13:46:55+08:00">2022-07-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Given a slice <code>a</code>. There are 2 sub slices. One’s length is <code>k</code>, the other’s is <code>p</code>.<br>These 2 sub slices are not overlaid. Find the max sum of the 2 sub slices.</p>
+<p>Return <code>-1</code> if can’t find one.</p>
+<p>Example 1:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,4,7,5,8,2,9], 3, 2</span><br><span class="line">Output: 35</span><br></pre></td></tr></table></figure>
+
+<p>Example 2:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,3,4,7,5,8], 100, 2</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+<h2 id="Thought"><a href="#Thought" class="headerlink" title="Thought"></a>Thought</h2><p>Move slice <code>K</code> through <code>A</code>, at the left and right side of <code>K</code> place the slice <code>P</code>.<br>To improve the efficiency, store sums of <code>K</code> and <code>P</code> in hash tables.<br><img src="/2022/07/20/go-leetcode-max-two-sub-slices-sum/thought.png"><br><img src="/2022/07/20/go-leetcode-max-two-sub-slices-sum/hash1.png"><br><img src="/2022/07/20/go-leetcode-max-two-sub-slices-sum/hash2.png"></p>
+<!-- ![](sum.png) -->
+
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxSum</span><span class="params">(a []<span class="type">int</span>, k, p <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> k+p &gt; <span class="built_in">len</span>(a) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">	&#125;</span><br><span class="line">	kt := hashTable(a, k)</span><br><span class="line">	pt := hashTable(a, p)</span><br><span class="line">	ki := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> ki &lt; <span class="built_in">len</span>(kt) &#123;</span><br><span class="line">		left := maxVal(pt[:max(<span class="number">0</span>, ki-p+<span class="number">1</span>)]...)</span><br><span class="line">		right := maxVal(pt[min(ki+k, <span class="built_in">len</span>(pt)):]...)</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> left == <span class="number">-1</span> &amp;&amp; right == <span class="number">-1</span> &#123;</span><br><span class="line">			kt[ki] = <span class="number">-1</span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			kt[ki] = kt[ki] + max(right, left)</span><br><span class="line">		&#125;</span><br><span class="line">		ki++</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> maxVal(kt...)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hashTable</span><span class="params">(a []<span class="type">int</span>, length <span class="type">int</span>)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> length &gt; <span class="built_in">len</span>(a) &#123;</span><br><span class="line">		<span class="keyword">return</span> []<span class="type">int</span>&#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	tlen := <span class="built_in">len</span>(a) - length + <span class="number">1</span></span><br><span class="line">	t := <span class="built_in">make</span>([]<span class="type">int</span>, tlen)</span><br><span class="line">	i := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i &lt; tlen &#123;</span><br><span class="line">		t[i] = sum(a[i : i+length]...)</span><br><span class="line">		i++</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> t</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxVal</span><span class="params">(nums ...<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	m := <span class="number">-1</span></span><br><span class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">		<span class="keyword">if</span> m &lt; v &#123;</span><br><span class="line">			m = v</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> m</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum</span><span class="params">(nums ...<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	res := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> _, n := <span class="keyword">range</span> nums &#123;</span><br><span class="line">		res += n</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(i, j <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> i &gt; j &#123;</span><br><span class="line">		<span class="keyword">return</span> i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> j</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">min</span><span class="params">(i, j <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> i &lt; j &#123;</span><br><span class="line">		<span class="keyword">return</span> i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> j</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/07/20/go-leetcode-crop-n-length-string/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -832,201 +1018,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/05/04/leetcode-str-str/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/04/leetcode-str-str/" class="post-title-link" itemprop="url">Solve Leetcode in Rust: Implement strStr()</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-05-05 12:10:55" itemprop="dateCreated datePublished" datetime="2022-05-05T12:10:55+08:00">2022-05-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Problem: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://leetcode.com/problems/implement-strstr">Implement strStr()</a></p>
-<p>Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. If needle is empty, return 0.</p>
-<h2 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h2><p>strategies:</p>
-<ul>
-<li>two pointers to compare each characters of needle and haystack (2 while loops)</li>
-<li>iterate through haystack to get slices to compare with needle</li>
-<li>iterate through haystack to get slices. Hash each slice and compare the hashed with the hashed needle</li>
-<li>use <code>find</code> method</li>
-</ul>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="Two-While-Loops"><a href="#Two-While-Loops" class="headerlink" title="Two While Loops"></a>Two While Loops</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">str_str</span>(haystack: <span class="type">String</span>, needle: <span class="type">String</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">hay_vec</span>: <span class="type">Vec</span>&lt;<span class="type">char</span>&gt; = haystack.<span class="title function_ invoke__">chars</span>().<span class="title function_ invoke__">collect</span>();</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">needle_vec</span>: <span class="type">Vec</span>&lt;<span class="type">char</span>&gt; = needle.<span class="title function_ invoke__">chars</span>().<span class="title function_ invoke__">collect</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">i_hay</span>: <span class="type">usize</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">i_needle</span>: <span class="type">usize</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> i_hay &lt; hay_vec.<span class="title function_ invoke__">len</span>() &#123;</span><br><span class="line">            <span class="keyword">while</span> i_needle &lt; needle_vec.<span class="title function_ invoke__">len</span>() &#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">let</span> <span class="variable">offset_hay</span> = i_hay + i_needle;</span><br><span class="line">                <span class="keyword">if</span> offset_hay &gt;= hay_vec.<span class="title function_ invoke__">len</span>() &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> hay_vec[offset_hay] != needle_vec[i_needle] &#123;</span><br><span class="line">                    i_needle = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> hay_vec[offset_hay] == needle_vec[i_needle] &amp;&amp; i_needle == needle_vec.<span class="title function_ invoke__">len</span>() - <span class="number">1</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> i_hay <span class="keyword">as</span> <span class="type">i32</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                i_needle += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            i_hay += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Compare-String-Slice"><a href="#Compare-String-Slice" class="headerlink" title="Compare String Slice"></a>Compare String Slice</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">str_str</span>(haystack: <span class="type">String</span>, needle: <span class="type">String</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> (hay_len, needle_len) = (haystack.<span class="title function_ invoke__">len</span>(), needle.<span class="title function_ invoke__">len</span>());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> needle_len == <span class="number">0</span> &#123; <span class="keyword">return</span> <span class="number">0</span> &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> needle_len &gt; hay_len &#123; <span class="keyword">return</span> -<span class="number">1</span> &#125; <span class="comment">// avoid hay: &quot;aa&quot;, needle: &quot;aaaa&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="number">0</span>..=hay_len - needle_len &#123;</span><br><span class="line">            <span class="keyword">if</span> haystack[i..i + needle_len] == needle &#123;</span><br><span class="line">                <span class="keyword">return</span> i <span class="keyword">as</span> <span class="type">i32</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Use-Manual-Hash"><a href="#Use-Manual-Hash" class="headerlink" title="Use Manual Hash"></a>Use Manual Hash</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MAGIC_NUM: <span class="type">u64</span> = <span class="number">31</span>; <span class="comment">// can be any number but should not too big</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">str_str</span>(haystack: <span class="type">String</span>, needle: <span class="type">String</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> (hay_len, needle_len) = (haystack.<span class="title function_ invoke__">len</span>(), needle.<span class="title function_ invoke__">len</span>());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> needle_len == <span class="number">0</span> &#123; <span class="keyword">return</span> <span class="number">0</span> &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> needle_len &gt; hay_len &#123; <span class="keyword">return</span> -<span class="number">1</span> &#125; <span class="comment">// avoid hay: &quot;aa&quot;, needle: &quot;aaaa&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">hash_needle</span> = <span class="title function_ invoke__">hash</span>(&amp;needle);</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">hash_hay</span>:<span class="type">u64</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">highest_pow</span> = MAGIC_NUM.<span class="title function_ invoke__">pow</span>(needle_len <span class="keyword">as</span> <span class="type">u32</span> - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="number">0</span>..=hay_len - needle_len &#123;</span><br><span class="line">        <span class="keyword">if</span> hash_hay == <span class="number">0</span> &#123; </span><br><span class="line">            hash_hay = <span class="title function_ invoke__">hash</span>(&amp;haystack[i..i + needle_len]); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">/* rolling hash */</span> </span><br><span class="line">            <span class="comment">// abc -&gt; _bc</span></span><br><span class="line">            <span class="keyword">let</span> <span class="variable">first_c</span> = haystack.<span class="title function_ invoke__">chars</span>().<span class="title function_ invoke__">nth</span>(i-<span class="number">1</span>).<span class="title function_ invoke__">unwrap</span>();</span><br><span class="line">            hash_hay -= first_c <span class="keyword">as</span> <span class="type">u64</span> * highest_pow;</span><br><span class="line">            <span class="comment">// _bc -&gt; bc_</span></span><br><span class="line">            hash_hay *= MAGIC_NUM;</span><br><span class="line">            <span class="comment">// bc_ -&gt; bcd</span></span><br><span class="line">            hash_hay += haystack.<span class="title function_ invoke__">chars</span>().<span class="title function_ invoke__">nth</span>(i + needle_len - <span class="number">1</span>).<span class="title function_ invoke__">unwrap</span>() <span class="keyword">as</span> <span class="type">u64</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> hash_hay == hash_needle &#123;</span><br><span class="line">            <span class="keyword">return</span> i <span class="keyword">as</span> <span class="type">i32</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    -<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">hash</span>(<span class="type">str</span>: &amp;<span class="type">str</span>) <span class="punctuation">-&gt;</span> <span class="type">u64</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">buf</span>:<span class="type">u64</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="variable">c</span> <span class="keyword">in</span> <span class="type">str</span>.<span class="title function_ invoke__">chars</span>() &#123;</span><br><span class="line">        buf *= MAGIC_NUM;</span><br><span class="line">        buf += c <span class="keyword">as</span> <span class="type">u64</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    buf</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Use-Find"><a href="#Use-Find" class="headerlink" title="Use Find"></a>Use Find</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">str_str</span>(haystack: <span class="type">String</span>, needle: <span class="type">String</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> needle.<span class="title function_ invoke__">is_empty</span>() &#123; <span class="keyword">return</span> <span class="number">0</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">match</span> &amp;haystack.<span class="title function_ invoke__">find</span>(&amp;needle) &#123;</span><br><span class="line">            <span class="title function_ invoke__">Some</span>(i) =&gt; *i <span class="keyword">as</span> <span class="type">i32</span>,</span><br><span class="line">            <span class="literal">None</span> =&gt; -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="If-An-Unicode-String-Given"><a href="#If-An-Unicode-String-Given" class="headerlink" title="If An Unicode String Given"></a>If An Unicode String Given</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">str</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;好&quot;</span>);</span><br><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, <span class="type">str</span>.<span class="title function_ invoke__">len</span>()); <span class="comment">// This will print out 3</span></span><br></pre></td></tr></table></figure>
-
-<p>Since the <code>len()</code> returns the length of bytes not characters, we need to change our code if unicode strings given.</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">str_str</span>(haystack: <span class="type">String</span>, needle: <span class="type">String</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="comment">// Get length of chars instead of bytes</span></span><br><span class="line">        <span class="keyword">let</span> (hay_len, needle_len) = (</span><br><span class="line">            haystack.<span class="title function_ invoke__">chars</span>().<span class="title function_ invoke__">count</span>(),</span><br><span class="line">            needle.<span class="title function_ invoke__">chars</span>().<span class="title function_ invoke__">count</span>()</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Collect string into `Vec&lt;char&gt;`</span></span><br><span class="line">        <span class="keyword">let</span> (hay_chars, needle_chars) = (</span><br><span class="line">            haystack.<span class="title function_ invoke__">chars</span>().collect::&lt;<span class="type">Vec</span>&lt;<span class="type">char</span>&gt;&gt;(),</span><br><span class="line">            needle.<span class="title function_ invoke__">chars</span>().collect::&lt;<span class="type">Vec</span>&lt;<span class="type">char</span>&gt;&gt;()</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        <span class="comment">// The rest are same</span></span><br><span class="line">        <span class="keyword">if</span> needle_len == <span class="number">0</span> &#123; <span class="keyword">return</span> <span class="number">0</span> &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> needle_len &gt; hay_len &#123; <span class="keyword">return</span> -<span class="number">1</span> &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="number">0</span>..=hay_len - needle_len &#123;</span><br><span class="line">            <span class="keyword">if</span> hay_chars[i..i + needle_len] == needle_chars &#123;</span><br><span class="line">                <span class="keyword">return</span> i <span class="keyword">as</span> <span class="type">i32</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        -<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Conculsion"><a href="#Conculsion" class="headerlink" title="Conculsion"></a>Conculsion</h2><ul>
-<li>utilize string slice or <code>find</code> looks easier.</li>
-<li>in some situations, hash may be useful. However, for this case, it may not be the best practise.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liang256.github.io/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Liang Chen">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="/tmp/bucket">
-      <meta itemprop="description" content="A personal archive of experiments, poems, art, notes, and thoughts by Leon Chen.">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | /tmp/bucket">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/" class="post-title-link" itemprop="url">Solve Leetcode in Rust: Rebuild A Tree From An Inorder and A Preorder Traversal</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-05-05 10:29:21" itemprop="dateCreated datePublished" datetime="2022-05-05T10:29:21+08:00">2022-05-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Given a inorder-traversal result and a preorder-traversal result of a tree, Figure out the tree structure.</p>
-<p><img src="/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/given-inorder-and-preorder.png"></p>
-<p>For example:</p>
-<ul>
-<li>inorder: 1,2,3,4,5,6,7</li>
-<li>preorder: 5,2,1,4,3,6,7</li>
-</ul>
-<p>What is the structure of this tree? Can we build a tree based on these two clues?</p>
-<h2 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h2><p>The first element of preorder-traversal must be the Root of a tree. On the other hand, we can determine left and right from inorder-traversal after we get the root. As the result, we can again get inorder and preorder result of left-sub-tree and right-sub-tree, then both left and right redo above process until they get no or only one element.</p>
-<p><img src="/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/process.png"></p>
-<p>Overview the tree for now</p>
-<p><img src="/2022/05/04/leetcode-rebuild-tree-from-inord-and-preord-traversal/result.png"></p>
-<p>So we can expect we can get the whole tree if we repeat the process.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> val: <span class="type">i32</span>,</span><br><span class="line">    <span class="keyword">pub</span> left: <span class="type">Option</span>&lt;<span class="type">Box</span>&lt;Node&gt;&gt;,</span><br><span class="line">    <span class="keyword">pub</span> right: <span class="type">Option</span>&lt;<span class="type">Box</span>&lt;Node&gt;&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">new</span>(val: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="keyword">Self</span> &#123;</span><br><span class="line">        Node &#123; </span><br><span class="line">            val,</span><br><span class="line">            left: <span class="literal">None</span>,</span><br><span class="line">            right: <span class="literal">None</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">inorder_traversal</span>(&amp;<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="variable">Some</span>(left) = &amp;<span class="keyword">self</span>.left &#123;</span><br><span class="line">            left.<span class="title function_ invoke__">inorder_traversal</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, &amp;<span class="keyword">self</span>.val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="variable">Some</span>(right) = &amp;<span class="keyword">self</span>.right &#123;</span><br><span class="line">            right.<span class="title function_ invoke__">inorder_traversal</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">preorder_traversal</span>(&amp;<span class="keyword">self</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, &amp;<span class="keyword">self</span>.val);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="variable">Some</span>(left) = &amp;<span class="keyword">self</span>.left &#123;</span><br><span class="line">            left.<span class="title function_ invoke__">preorder_traversal</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> <span class="variable">Some</span>(right) = &amp;<span class="keyword">self</span>.right &#123;</span><br><span class="line">            right.<span class="title function_ invoke__">preorder_traversal</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">rebuild_tree</span>(inord_arr: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;, preord_arr: &amp;<span class="type">Vec</span>&lt;<span class="type">i32</span>&gt;) <span class="punctuation">-&gt;</span> Node &#123;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">let</span> <span class="variable">root_val</span> = preord_arr[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">root</span> = Node::<span class="title function_ invoke__">new</span>(root_val);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Find the index of root from inorder result</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">inord_arr_root_i</span> = inord_arr</span><br><span class="line">        .<span class="title function_ invoke__">iter</span>()</span><br><span class="line">        .<span class="title function_ invoke__">position</span>(|&amp;x| x == root_val)</span><br><span class="line">        .<span class="title function_ invoke__">unwrap</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">inord_left_sub_len</span> = inord_arr_root_i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> inord_left_sub_len == <span class="number">1</span> &#123;</span><br><span class="line">        root.left = <span class="title function_ invoke__">Some</span>(<span class="type">Box</span>::<span class="title function_ invoke__">new</span>(Node::<span class="title function_ invoke__">new</span>(inord_arr[<span class="number">0</span>])));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> inord_left_sub_len &gt; <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">preord_left_sub_vec</span> = preord_arr[<span class="number">1</span>..inord_left_sub_len+<span class="number">1</span>].<span class="title function_ invoke__">to_vec</span>();</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">inord_left_sub_vec</span> = inord_arr[..inord_arr_root_i].<span class="title function_ invoke__">to_vec</span>();</span><br><span class="line">        root.left = <span class="title function_ invoke__">Some</span>(</span><br><span class="line">            <span class="type">Box</span>::<span class="title function_ invoke__">new</span>(<span class="title function_ invoke__">rebuild_tree</span>(</span><br><span class="line">                &amp;inord_left_sub_vec,</span><br><span class="line">                &amp;preord_left_sub_vec</span><br><span class="line">            ))</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">inord_right_sub_len</span> = inord_arr.<span class="title function_ invoke__">len</span>() - inord_left_sub_len - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> inord_right_sub_len == <span class="number">1</span> &#123;</span><br><span class="line">        root.right = <span class="title function_ invoke__">Some</span>(<span class="type">Box</span>::<span class="title function_ invoke__">new</span>(Node::<span class="title function_ invoke__">new</span>(inord_arr[inord_arr_root_i + <span class="number">1</span>])));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> inord_right_sub_len &gt; <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">preord_right_sub_vec</span> = preord_arr[<span class="number">1</span>+inord_left_sub_len..].<span class="title function_ invoke__">to_vec</span>();</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">inord_right_sub_vec</span> = inord_arr[inord_arr_root_i+<span class="number">1</span>..].<span class="title function_ invoke__">to_vec</span>();</span><br><span class="line">        root.right = <span class="title function_ invoke__">Some</span>(</span><br><span class="line">            <span class="type">Box</span>::<span class="title function_ invoke__">new</span>(<span class="title function_ invoke__">rebuild_tree</span>(</span><br><span class="line">                &amp;inord_right_sub_vec,</span><br><span class="line">                &amp;preord_right_sub_vec</span><br><span class="line">            ))</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    root</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">inord_vec</span> = <span class="built_in">vec!</span>[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">preord_vec</span> = <span class="built_in">vec!</span>[<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">rebuild_tree_n</span> = <span class="title function_ invoke__">rebuild_tree</span>(&amp;inord_vec, &amp;preord_vec);</span><br><span class="line"></span><br><span class="line">    rebuild_tree_n.<span class="title function_ invoke__">inorder_traversal</span>(); <span class="comment">// 1,2,3,4,5,6,7</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;--------&quot;</span>);</span><br><span class="line">    rebuild_tree_n.<span class="title function_ invoke__">preorder_traversal</span>(); <span class="comment">// 5,2,1,4,3,6,7</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
